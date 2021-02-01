@@ -14,6 +14,7 @@ When reviewing code, here are some things we look for and also things we avoid:
 * Performance
 * Accessibility
 * Security
+* Quality via automated and manual testing
 * Comments and documentation where needed
 * Sharing knowledge of different areas among the team
 * Ensuring it's something we're comfortable maintaining for the long term
@@ -34,6 +35,7 @@ When reviewing code, here are some things we look for and also things we avoid:
 * Reviewers should be explicit about required versus optional changes
   * Reviews are conversations and the PR author should feel comfortable
     discussing and pushing back on changes before making them
+* Reviewers are encouraged to ask for tests where they believe it is reasonable
 * Core team should lead by example through their tone and language
 * Take the time to thank and point out good code changes
 * Using softer language like "please" and "what do you think?" goes a long way
@@ -41,7 +43,7 @@ When reviewing code, here are some things we look for and also things we avoid:
 
 ### Workflow
 
-* Authors should request review from the riot-web team by default (if someone on
+* Authors should request review from the element-web team by default (if someone on
   the team is clearly the expert in an area, a direct review request to them may
   be more appropriate)
 * Reviewers should remove the team review request and request review from
@@ -71,10 +73,9 @@ functionality is:
   required (though may still be useful) since we can continue tweaking
 
 As it can be difficult to review design work from looking at just the changed
-files in a PR, authors should be prepared for Design and / or Product teams to
-request a link to an ad-hoc build of Element (hosted anywhere) that can be used for
-the review. In the future, we [hope to automate
-this](https://github.com/vector-im/riot-web/issues/12624) for every PR.
+files in a PR, a [preview site](./pr-previews.md) that includes your changes
+will be added automatically so that anyone who's interested can try them out
+easily.
 
 Before starting work on a feature, it's best to ensure your plan aligns well
 with our vision for Element. Please chat with the team in
