@@ -7,6 +7,10 @@ to `Settings->Labs`. This list is non-exhaustive and subject to change, chat in
 **Be warned! Labs features are not finalised, they may be fragile, they may change, they may be
 dropped. Ask in the room if you are unclear about any details here.**
 
+## Render LaTeX maths in messages (`feature_latex_maths`)
+
+Enables rendering of LaTeX maths in messages using [KaTeX](https://katex.org/). LaTeX between single dollar-signs is interpreted as inline maths and double dollar-signs as display maths (i.e. centred on its own line).
+
 ## New spinner design (`feature_new_spinner`)
 
 Replaces the old spinner image with a new, svg-based one featuring a sleeker design.
@@ -106,3 +110,8 @@ To enable message previews for reactions in DMs, enable `feature_roomlist_previe
 represent what communities v2 will look/feel like and can/will change without notice. Due to the early
 stages this feature is in and the requirement for a compatible homeserver, we will not be accepting issues
 or feedback for this functionality at this time.
+
+## Dehydrated devices (`feature_dehydration`)
+
+Allows users to receive encrypted messages by creating a device that is stored
+encrypted on the server, as described in [MSC2697](https://github.com/matrix-org/matrix-doc/pull/2697).

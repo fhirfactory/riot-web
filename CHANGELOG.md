@@ -1,3 +1,295 @@
+Changes in [1.7.18](https://github.com/vector-im/element-web/releases/tag/v1.7.18) (2021-01-26)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.17...v1.7.18)
+
+ * Upgrade to React SDK 3.12.1 and JS SDK 9.5.1
+
+Changes in [1.7.17](https://github.com/vector-im/element-web/releases/tag/v1.7.17) (2021-01-18)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.17-rc.1...v1.7.17)
+
+ * Upgrade to React SDK 3.12.0 and JS SDK 9.5.0
+
+Changes in [1.7.17-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.17-rc.1) (2021-01-13)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.16...v1.7.17-rc.1)
+
+ * Upgrade to React SDK 3.12.0-rc.1 and JS SDK 9.5.0-rc.1
+ * Translations update from Weblate
+   [\#16131](https://github.com/vector-im/element-web/pull/16131)
+ * webplatform: Fix notification closing
+   [\#16028](https://github.com/vector-im/element-web/pull/16028)
+ * Stop building code and types for Element layer
+   [\#15999](https://github.com/vector-im/element-web/pull/15999)
+
+Changes in [1.7.16](https://github.com/vector-im/element-web/releases/tag/v1.7.16) (2020-12-21)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.16-rc.1...v1.7.16)
+
+ * Upgrade to React SDK 3.11.1 and JS SDK 9.4.1
+
+Changes in [1.7.16-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.16-rc.1) (2020-12-16)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.15...v1.7.16-rc.1)
+
+ * Upgrade to React SDK 3.11.0-rc.2 and JS SDK 9.4.0-rc.2
+ * Translations update from Weblate
+   [\#15979](https://github.com/vector-im/element-web/pull/15979)
+ * Bump ini from 1.3.5 to 1.3.7
+   [\#15949](https://github.com/vector-im/element-web/pull/15949)
+ * Document pull request previews
+   [\#15937](https://github.com/vector-im/element-web/pull/15937)
+ * Improve asset path for KaTeX fonts
+   [\#15939](https://github.com/vector-im/element-web/pull/15939)
+ * Fix an important semicolon
+   [\#15912](https://github.com/vector-im/element-web/pull/15912)
+ * Bump highlight.js from 10.1.2 to 10.4.1
+   [\#15898](https://github.com/vector-im/element-web/pull/15898)
+ * Add gitter.im to room directory
+   [\#15894](https://github.com/vector-im/element-web/pull/15894)
+ * Extend Platform to support idpId for SSO flows
+   [\#15771](https://github.com/vector-im/element-web/pull/15771)
+ * Include KaTeX CSS as a dependency
+   [\#15843](https://github.com/vector-im/element-web/pull/15843)
+
+Changes in [1.7.15](https://github.com/vector-im/element-web/releases/tag/v1.7.15) (2020-12-07)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.15-rc.1...v1.7.15)
+
+ * Upgrade to React SDK 3.10.0 and JS SDK 9.3.0
+
+Changes in [1.7.15-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.15-rc.1) (2020-12-02)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.14...v1.7.15-rc.1)
+
+ * Upgrade to React SDK 3.10.0-rc.1 and JS SDK 9.3.0-rc.1
+ * Include KaTeX CSS as a dependency
+   [\#15843](https://github.com/vector-im/element-web/pull/15843)
+ * Translations update from Weblate
+   [\#15884](https://github.com/vector-im/element-web/pull/15884)
+ * added katex.min.css to webpack for math support (main PR in matrix-react-
+   sdk)
+   [\#15277](https://github.com/vector-im/element-web/pull/15277)
+ * Rebrand package name and other details
+   [\#15828](https://github.com/vector-im/element-web/pull/15828)
+ * Bump highlight.js from 9.18.1 to 10.1.2
+   [\#15819](https://github.com/vector-im/element-web/pull/15819)
+ * Update branding of packaging artifacts
+   [\#15810](https://github.com/vector-im/element-web/pull/15810)
+ * Update the react-sdk reference in the lockfile
+   [\#15814](https://github.com/vector-im/element-web/pull/15814)
+ * Update widget API for good measure in Element Web
+   [\#15812](https://github.com/vector-im/element-web/pull/15812)
+ * Stop publishing Element to NPM
+   [\#15811](https://github.com/vector-im/element-web/pull/15811)
+ * Add inotify instance limit info to README
+   [\#15795](https://github.com/vector-im/element-web/pull/15795)
+
+Changes in [1.7.14](https://github.com/vector-im/element-web/releases/tag/v1.7.14) (2020-11-23)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.14-rc.1...v1.7.14)
+
+ * Upgrade to React SDK 3.9.0 and JS SDK 9.2.0
+
+Changes in [1.7.14-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.14-rc.1) (2020-11-18)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.13...v1.7.14-rc.1)
+
+ * Upgrade to React SDK 3.9.0-rc.1 and JS SDK 9.2.0-rc.1
+ * Translations update from Weblate
+   [\#15767](https://github.com/vector-im/element-web/pull/15767)
+ * Update the widget-api for element-web
+   [\#15717](https://github.com/vector-im/element-web/pull/15717)
+
+Changes in [1.7.13](https://github.com/vector-im/element-web/releases/tag/v1.7.13) (2020-11-09)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.13-rc.1...v1.7.13)
+
+ * Upgrade to React SDK 3.8.0 and JS SDK 9.1.0
+
+Changes in [1.7.13-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.13-rc.1) (2020-11-04)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.12...v1.7.13-rc.1)
+
+ * Upgrade to React SDK 3.8.0-rc.1 and JS SDK 9.1.0-rc.1
+ * Translations update from Weblate
+   [\#15644](https://github.com/vector-im/element-web/pull/15644)
+ * Add countly experiment to develop/nightly configs
+   [\#15614](https://github.com/vector-im/element-web/pull/15614)
+ * Add documentation for new UIFeature flag regarding room history settings
+   [\#15592](https://github.com/vector-im/element-web/pull/15592)
+ * Rename Docker repo in docs
+   [\#15590](https://github.com/vector-im/element-web/pull/15590)
+ * Fix Jitsi regressions with custom themes
+   [\#15575](https://github.com/vector-im/element-web/pull/15575)
+
+Changes in [1.7.12](https://github.com/vector-im/element-web/releases/tag/v1.7.12) (2020-10-28)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.11...v1.7.12)
+
+ * Upgrade to React SDK 3.7.1 and JS SDK 9.0.1
+ * [Release] Fix Jitsi regressions with custom themes
+   [\#15577](https://github.com/vector-im/element-web/pull/15577)
+
+Changes in [1.7.11](https://github.com/vector-im/element-web/releases/tag/v1.7.11) (2020-10-26)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.11-rc.1...v1.7.11)
+
+ * Upgrade to React SDK 3.7.0 and JS SDK 9.0.0
+
+Changes in [1.7.11-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.11-rc.1) (2020-10-21)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.10...v1.7.11-rc.1)
+
+ * Upgrade to React SDK 3.7.0-rc.2 and JS SDK 9.0.0-rc.1
+ * Update Weblate URL
+   [\#15516](https://github.com/vector-im/element-web/pull/15516)
+ * Translations update from Weblate
+   [\#15517](https://github.com/vector-im/element-web/pull/15517)
+ * Jitsi accept theme variable and restyle
+   [\#15499](https://github.com/vector-im/element-web/pull/15499)
+ * Skip editor confirmation of upgrades
+   [\#15506](https://github.com/vector-im/element-web/pull/15506)
+ * Adjust for new widget messaging APIs
+   [\#15495](https://github.com/vector-im/element-web/pull/15495)
+ * Use HTTPS_PROXY environment variable for downloading external_api.min…
+   [\#15479](https://github.com/vector-im/element-web/pull/15479)
+ * Document customisation points
+   [\#15475](https://github.com/vector-im/element-web/pull/15475)
+ * Don't fatally end the Jitsi widget when it's not being used as a widget
+   [\#15466](https://github.com/vector-im/element-web/pull/15466)
+ * electron-platform: Pass the user/devce id pair when initializing the event
+   index.
+   [\#15455](https://github.com/vector-im/element-web/pull/15455)
+
+Changes in [1.7.10](https://github.com/vector-im/element-web/releases/tag/v1.7.10) (2020-10-20)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.9...v1.7.10)
+
+ * [Release] Adjust for new widget messaging APIs
+   [\#15497](https://github.com/vector-im/element-web/pull/15497)
+ * Upgrade to React SDK 3.6.1
+
+Changes in [1.7.9](https://github.com/vector-im/element-web/releases/tag/v1.7.9) (2020-10-12)
+=============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.9-rc.1...v1.7.9)
+
+ * Upgrade to React SDK 3.6.0 and JS SDK 8.5.0
+
+Changes in [1.7.9-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.9-rc.1) (2020-10-07)
+=======================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.8...v1.7.9-rc.1)
+
+ * Upgrade to React SDK 3.6.0-rc.1 and JS SDK 8.5.0-rc.1
+ * Update from Weblate
+   [\#15406](https://github.com/vector-im/element-web/pull/15406)
+ * Update Jest and JSDOM
+   [\#15402](https://github.com/vector-im/element-web/pull/15402)
+ * Add support for dehydration/fallback keys
+   [\#15398](https://github.com/vector-im/element-web/pull/15398)
+ * Remove riot-bot from sample config
+   [\#15376](https://github.com/vector-im/element-web/pull/15376)
+ * Switch to using the Widget API SDK for Jitsi widgets
+   [\#15102](https://github.com/vector-im/element-web/pull/15102)
+ * Remove workbox
+   [\#15352](https://github.com/vector-im/element-web/pull/15352)
+ * Disable workbox when running in webpack dev server, not in dev mode
+   [\#15345](https://github.com/vector-im/element-web/pull/15345)
+ * Update Riot -> Element in contribute.json
+   [\#15326](https://github.com/vector-im/element-web/pull/15326)
+ * Update Riot -> Element in redeploy.py
+   [\#15336](https://github.com/vector-im/element-web/pull/15336)
+ * Update Riot -> Element in docs/feature-flags.md
+   [\#15325](https://github.com/vector-im/element-web/pull/15325)
+ * Update Riot -> Element in element.io/README.md
+   [\#15327](https://github.com/vector-im/element-web/pull/15327)
+ * Update Riot -> Element in VectorAuthFooter
+   [\#15328](https://github.com/vector-im/element-web/pull/15328)
+ * Update Riot -> Element in VectorEmbeddedPage
+   [\#15329](https://github.com/vector-im/element-web/pull/15329)
+ * Update Riot -> Element in docs/review.md
+   [\#15330](https://github.com/vector-im/element-web/pull/15330)
+ * Update Riot -> Element in welcome.html
+   [\#15332](https://github.com/vector-im/element-web/pull/15332)
+ * Update Riot -> Element in issues-burndown.pl
+   [\#15333](https://github.com/vector-im/element-web/pull/15333)
+ * Update Riot -> Element in redeploy.py
+   [\#15334](https://github.com/vector-im/element-web/pull/15334)
+ * Update Riot -> Element in index.ts
+   [\#15335](https://github.com/vector-im/element-web/pull/15335)
+ * Update Riot -> Element Web in issue templates
+   [\#15324](https://github.com/vector-im/element-web/pull/15324)
+ * Give the Jitsi widget an icon to help with discovery
+   [\#15316](https://github.com/vector-im/element-web/pull/15316)
+ * Jitsi widget wrapper updates for hangup button
+   [\#15219](https://github.com/vector-im/element-web/pull/15219)
+ * Tidy up Service Worker, only run Workbox in production
+   [\#15271](https://github.com/vector-im/element-web/pull/15271)
+ * Remove conference handler
+   [\#15274](https://github.com/vector-im/element-web/pull/15274)
+ * Rebrand the webpack pipeline for Element
+   [\#15266](https://github.com/vector-im/element-web/pull/15266)
+ * Replace dummy sw.js with pre-caching and runtime-caching workbox SW
+   [\#15196](https://github.com/vector-im/element-web/pull/15196)
+
+Changes in [1.7.8](https://github.com/vector-im/element-web/releases/tag/v1.7.8) (2020-09-28)
+=============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.8-rc.1...v1.7.8)
+
+ * Upgrade to React SDK 3.5.0 and JS SDK 8.4.1
+
+Changes in [1.7.8-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.8-rc.1) (2020-09-23)
+=======================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.7...v1.7.8-rc.1)
+
+ * Upgrade to React SDK 3.5.0-rc.1 and JS SDK 8.4.0-rc.1
+ * Update from Weblate
+   [\#15262](https://github.com/vector-im/element-web/pull/15262)
+ * Upgrade sanitize-html
+   [\#15260](https://github.com/vector-im/element-web/pull/15260)
+ * Document config for preferring Secure Backup setup methods
+   [\#15251](https://github.com/vector-im/element-web/pull/15251)
+ * Add end-user documentation for UI features
+   [\#15190](https://github.com/vector-im/element-web/pull/15190)
+ * Update git checkout instructions
+   [\#15218](https://github.com/vector-im/element-web/pull/15218)
+ * If no bug_report_endpoint_url, hide rageshaking from the App
+   [\#15201](https://github.com/vector-im/element-web/pull/15201)
+ * Bump node-fetch from 2.6.0 to 2.6.1
+   [\#15153](https://github.com/vector-im/element-web/pull/15153)
+ * Remove references to Travis CI
+   [\#15137](https://github.com/vector-im/element-web/pull/15137)
+ * Fix onNewScreen to use replace when going from roomId->roomAlias
+   [\#15127](https://github.com/vector-im/element-web/pull/15127)
+ * Enable Estonian in language menu
+   [\#15136](https://github.com/vector-im/element-web/pull/15136)
+
+Changes in [1.7.7](https://github.com/vector-im/element-web/releases/tag/v1.7.7) (2020-09-14)
+=============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.6...v1.7.7)
+
+ * Upgrade to React SDK 3.4.1
+
+Changes in [1.7.6](https://github.com/vector-im/element-web/releases/tag/v1.7.6) (2020-09-14)
+=============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.6-rc.1...v1.7.6)
+
+ * Upgrade to React SDK 3.4.0 and JS SDK 8.3.0
+
+Changes in [1.7.6-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.6-rc.1) (2020-09-09)
+=======================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.5...v1.7.6-rc.1)
+
+ * Upgrade to React SDK 3.4.0-rc.1 and JS SDK 8.3.0-rc.1
+ * Update from Weblate
+   [\#15125](https://github.com/vector-im/element-web/pull/15125)
+ * Support usage of Jitsi widgets with "openidtoken-jwt" auth
+   [\#15114](https://github.com/vector-im/element-web/pull/15114)
+ * Fix eslint ts override tsx matching and delint
+   [\#15064](https://github.com/vector-im/element-web/pull/15064)
+ * Add testing to review guidelines
+   [\#15050](https://github.com/vector-im/element-web/pull/15050)
+
 Changes in [1.7.5](https://github.com/vector-im/element-web/releases/tag/v1.7.5) (2020-09-01)
 =============================================================================================
 [Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.5-rc.1...v1.7.5)
