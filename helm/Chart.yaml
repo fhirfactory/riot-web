@@ -1,0 +1,6 @@
+---
+name: communicate
+sources:
+- https://github.com/fhirfactory/pegacorn-communicate-app-web
+version: 1.0.0-SNAPSHOT
+description: riot-web - communicate

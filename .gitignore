@@ -19,3 +19,14 @@ electron/pub
 /src/component-index.js
 /.tmp
 /webpack-stats.json
+
+#ignore certificates used for docker build
+
+PRDPKICA.crt
+dockerio.crt
+WebGateway.crt
+downloaddockercom.crt
+
+#ignore copied projects
+pegacorn-communicate-matrix-js-sdk
+pegacorn-communicate-matrix-react-sdk
