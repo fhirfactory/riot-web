@@ -14,7 +14,7 @@ WORKDIR /src
 COPY . /src
 
 # Configuring certificate while SSL authentication is true
- RUN yarn config set proxy http://ACTGOV%5CSurendra%20Panday:Beautiful%21@proxy.test.act.gov.au:9090
+ RUN yarn config set proxy http://ACTGOV%5CSurendra%20Panday:<enter-your-login-password>@proxy.test.act.gov.au:9090
  COPY /PRDPKICA.crt /opt
  RUN yarn config set strict-ssl true
  RUN yarn config set cafile /opt/PRDPKICA.crt
