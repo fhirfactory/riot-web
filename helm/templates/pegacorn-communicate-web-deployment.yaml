@@ -9,12 +9,12 @@ metadata:
     fabric8.io/git-branch: master
     fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=pegacorn-communicate-web&var-version=1.0.0-SNAPSHOT
     fabric8.io/scm-tag: HEAD
-    fabric8.io/scm-url: https://github.com/fhirfactory/pegacorn-communicate-app-web
+    fabric8.io/scm-url: https://github.com/fhirbox/pegacorn-communicate-web
   labels:
     app: {{ .Values.serviceName }}
     provider: fabric8
     version: 1.0.0-SNAPSHOT
-    group: net.fhirfactory.pegacorn
+    group: net.fhirbox.pegacorn
   name: {{ .Values.serviceName }}
 spec:
   replicas: {{ .Values.numOfPods | default 2 }}
@@ -23,12 +23,12 @@ spec:
     matchLabels:
       app: {{ .Values.serviceName }}
       provider: fabric8
-      group: net.fhirfactory.pegacorn
+      group: net.fhirbox.pegacorn
   template:
     metadata:
       annotations:
 #        fabric8.io/git-commit: 9835f5100a549e30a10dd1303b0952234aea14b9
-#       fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=pegacorn-communicate-web&var-version=1.0.0-SNAPSHOT
+        fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=pegacorn-communicate-web&var-version=1.0.0-SNAPSHOT
         fabric8.io/iconUrl: img/icons/camel.svg
         fabric8.io/git-branch: master
         fabric8.io/scm-tag: HEAD
@@ -36,7 +36,7 @@ spec:
         app: {{ .Values.serviceName }}
         provider: fabric8
         version: 1.0.0-SNAPSHOT
-        group: net.fhirfactory.pegacorn
+        group: net.fhirbox.pegacorn
         date: "{{ date "20060102-150405" .Release.Time }}"
     spec:
       {{ if (.Values.acrSecretName) }} 
@@ -84,23 +84,24 @@ spec:
         resources:
           limits:
             memory: "2048Mi"
-        image: {{ .Values.dockerRepo }}pegacorn/pegacorn-communicate-app-web:{{ .Values.imageTag }}            
+        image: {{ .Values.dockerRepo }}fhirfactory/pegacorn-communicate-app-web:{{ .Values.imageTag }}            
         imagePullPolicy: IfNotPresent
-        name: synapes
+        name: synapse
         ports:
-        - containerPort: 80
-          name: http
-          protocol: TCP
         - containerPort: 443
           name: https
           protocol: TCP
         securityContext:
           privileged: false
         volumeMounts:
-        - mountPath: /app/config.json
-          name: configuration   
-          subPath: config.json  
+        - mountPath: /etc/ssl/private
+          name: certkey
+        - mountPath: /etc/ssl/certs
+          name: cert
       volumes:
-      - name: configuration
+      - name: certkey
         hostPath: 
-          path: {{ .Values.hostPath }}
+          path: {{ .Values.hostPathKey }}
+      - name: cert
+        hostPath: 
+          path: {{ .Values.hostPathCert }}
