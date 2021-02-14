@@ -35,9 +35,6 @@ Build and deploy
 ================
 cd E:\dev\pegacorn-communicate-app-web or where you have downloaded the project
 
-docker build --rm -t pegacorn/pegacorn-communicate-app-web:1.0 .
-\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName="pegacorn-communicate-app-web",basePort=30890,hostPath="<location of your config.json file e.q /data/riot-web>",imageTag=1.0 helm
-
 ## Set environment variables
 Referred to : https://medium.com/bb-tutorials-and-thoughts/dockerizing-react-app-with-nodejs-backend-26352561b0b7 
 
@@ -49,3 +46,35 @@ Referred to : https://medium.com/bb-tutorials-and-thoughts/dockerizing-react-app
 docker build --rm --no-cache -t pegacorn-communicate-app-web:1.0 --file Dockerfile .
 4) Run helm command to deploy to kubernetes cluster
 5) Check that if applicaiton is running on your browser: http://pegacorn-communicate-web.site-a:30990/
+
+## Certificate Setup for SSL
+==================Certificates for https========================
+Clone the certificates for the app-web on Azure repo to E:\dev\aether-host-files\LocalWorkstations
+When the alpine command is executed (cp -r /host_mnt/e/dev/aether-host-files/LocalWorkstations/* /data/) it will pick up the elements app web certificates.
+
+## Docker Build
+docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t fhirfactory/pegacorn-communicate-app-web:1.0.0-snapshot --file Dockerfile .
+
+## Run Helm Command(Install)
+\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName="pegacorn-communicate-web",basePort=30890,hostPathKey="/data/elementcerts",hostPathCert="/data/elementcerts",imageTag=1.0.0-snapshot,numOfPods=1 helm
+
+## Check if it runs on your browser
+Browse to website - confirm padlock key shows it is secure.
+https://pegacorn-communicate-web.site-a:30890
+*** CONFIGURE SYNAPSE SERVER IN KUBERNETES TO CONNECT TO THE PEGACORN ROOMSERVER
+
+## Trivy
+Run Trivy Scanner to find potential vulnerability in image
+fhirfactory/pegacorn-communicate-app-web:1.0.0-snapshot (alpine 3.12.3)
+===========================================================
+Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+
+dockle:
+WARN    - CIS-DI-0001: Create a user for the container
+        * Last user should not be root
+INFO    - CIS-DI-0005: Enable Content trust for Docker
+        * export DOCKER_CONTENT_TRUST=1 before docker pull/build
+INFO    - CIS-DI-0006: Add HEALTHCHECK instruction to the container image
+        * not found HEALTHCHECK statement
+
+NO ISSUES DETECTED - IMAGE STATUS OK.
