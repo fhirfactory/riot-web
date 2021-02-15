@@ -1,5 +1,5 @@
-Setup a riot-web running in Docker using Kubernete and Helm
-===========================================================
+Setup a riot-web running in Docker using Kubernetes and Helm
+============================================================
 Git
 ===========
 https://github.com/fhirfactory/pegacorn-communicate-app-web
@@ -12,61 +12,61 @@ Docker Hub image fhirfactory/pegacorn-base-communicate-app-web:1.0.0 has been us
 ======
 Setup
 ======
-1) Create a file called config.json from the sample file at: https://github.com/vector-im/riot-web/blob/develop/config.sample.json
+1) Create a file called config.json from the sample file at: https://github.com/vector-im/element-web/blob/master/config.sample.json
 
-Update the bae_url and server_name elements as following:
+Update the base_url and server_name elements as following:
 
 	"default_server_config": {
         "m.homeserver": {
             "base_url": "https://pegacorn-communicate-roomserver.site-a:30880",
-            "server_name": "<the server_name from your custom homeserver.yaml file in pegacorn-communicate-roomserver"
+            "server_name": "<the server_name from your custom homeserver.yaml file in pegacorn-communicate-serverside-roomserver"
         },
         "m.identity_server": {
             "base_url": "https://vector.im"
         }
     },
 
-2) Copy this file to a host path location.  Remember this location as it is required for the helm command. e.q: riot\web
+2) Create certificates: 
+    Create-Cert-Set -certSubject 'pegacorn-communicate-web.site-a' -certPwd 'Password' -doNOTSecureKeyFileWithAPwd $True
 
-3) Add the following to the hosts file
+3) Copy the config.json and the certificates to a host path location.  Remember these locations as it is required for the helm command.
+	e.g.
+	cp -r /host_mnt/e/dev/aether-host-files/LocalWorkstations/* /data/
+
+4) Add the following to the hosts file
 	pegacorn-communicate-web.site-a
+	
 ================
 Build and deploy
 ================
-cd E:\dev\pegacorn-communicate-app-web or where you have downloaded the project
+E:
+cd \dev\github\pegacorn-communicate-app-web       (or where you have cloned the git project)
 
-## Set environment variables
-Referred to : https://medium.com/bb-tutorials-and-thoughts/dockerizing-react-app-with-nodejs-backend-26352561b0b7 
+docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot --file Dockerfile.element .
+OR do a full build with 
+  1) Copy paste docker-ssl-certificate from E:\docker-ssl-cert to your pegacorn-communicate-app-web directory
+  2) Copy pegacorn-communicate-matrix-react-sdk and pegacorn-communicate-matrix-js-sdk into src/ directory
+  3) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot .
 
-## How to build docker image and run 
+\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName=pegacorn-communicate-web,basePort=30890,hostPath=/data/riot-web,hostPathCerts=/data/certificates,imageTag=1.0.0-snapshot,numOfPods=1 helm
 
-1) Copy paste docker-ssl-certificate from E:\docker-ssl-cert to your pegacorn-communicate-app-web directory
-2) Copy pegacorn-communicate-matrix-react-sdk and pegacorn-communicate-matrix-js-sdk into src/ directory
-3) Run docker build command
-docker build --rm --no-cache -t pegacorn-communicate-app-web:1.0 --file Dockerfile .
-4) Run helm command to deploy to kubernetes cluster
-5) Check that if applicaiton is running on your browser: http://pegacorn-communicate-web.site-a:30990/
+================
+Test
+================
 
-## Certificate Setup for SSL
-==================Certificates for https========================
-Clone the certificates for the app-web on Azure repo to E:\dev\aether-host-files\LocalWorkstations
-When the alpine command is executed (cp -r /host_mnt/e/dev/aether-host-files/LocalWorkstations/* /data/) it will pick up the elements app web certificates.
+Confirm that applicaiton is running on your browser: https://pegacorn-communicate-web.site-a:30890
+Confirm padlock key shows it is secure.
 
-## Docker Build
-docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t fhirfactory/pegacorn-communicate-app-web:1.0.0-snapshot --file Dockerfile .
+===========================
+Security Vulnerability Scan
+===========================
 
-## Run Helm Command(Install)
-\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName="pegacorn-communicate-web",basePort=30890,hostPathKey="/data/elementcerts",hostPathCert="/data/elementcerts",imageTag=1.0.0-snapshot,numOfPods=1 helm
-
-## Check if it runs on your browser
-Browse to website - confirm padlock key shows it is secure.
-https://pegacorn-communicate-web.site-a:30890
-*** CONFIGURE SYNAPSE SERVER IN KUBERNETES TO CONNECT TO THE PEGACORN ROOMSERVER
-
-## Trivy
 Run Trivy Scanner to find potential vulnerability in image
-fhirfactory/pegacorn-communicate-app-web:1.0.0-snapshot (alpine 3.12.3)
-===========================================================
+2021-02-15T10:07:55.375Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-15T10:07:55.377Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
+
+pegacorn-communicate-web:1.0.0-snapshot (alpine 3.12.3)
+=======================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 dockle:
