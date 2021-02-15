@@ -48,7 +48,7 @@ OR do a full build with
   2) Copy pegacorn-communicate-matrix-react-sdk and pegacorn-communicate-matrix-js-sdk into src/ directory
   3) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot .
 
-\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName=pegacorn-communicate-web,basePort=30890,hostPath=/data/riot-web,hostPathCerts=/data/certificates,imageTag=1.0.0-snapshot,numOfPods=1 helm
+\helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName=pegacorn-communicate-web,basePort=30890,hostPath=/data/element-web,hostPathCerts=/data/certificates,imageTag=1.0.0-snapshot,numOfPods=1 helm
 
 ================
 Test
