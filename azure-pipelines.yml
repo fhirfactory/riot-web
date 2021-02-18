@@ -39,7 +39,7 @@ steps:
     repository: '$(Build.Repository.Name)'
     tags: '$(projectVersion)'
     command: 'build'
-    Dockerfile: 'Dockerfile'
+    Dockerfile: 'Dockerfile.element'
     arguments: '--build-arg IMAGE_BUILD_TIMESTAMP="$(buildTimestamp)"'
 - task: Docker@2
   displayName: 'Push a docker image'
