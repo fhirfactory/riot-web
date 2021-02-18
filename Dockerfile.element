@@ -1,0 +1,9 @@
+FROM vectorim/element-web:v1.7.20
+
+# Enable HTTPS
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Date-time build argument
+ARG IMAGE_BUILD_TIMESTAMP
+ENV IMAGE_BUILD_TIMESTAMP=${IMAGE_BUILD_TIMESTAMP}
+RUN echo IMAGE_BUILD_TIMESTAMP=${IMAGE_BUILD_TIMESTAMP}
