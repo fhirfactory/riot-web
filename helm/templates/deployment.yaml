@@ -37,6 +37,25 @@ spec:
 #                operator: In
 #                values:
 #                - High
+      initContainers:
+      - name: init
+        image: alpine
+        command: 
+          - sh
+          - "-c"
+          - "echo Updating /app/config.json file;
+            [ -e /app/config-with-placeholders.json ] || cp /app/config.json /app/config-with-placeholders.json;
+            /bin/cp -f /app/config-with-placeholders.json /app/config.json;
+            sed -i \"s/<MatrixServerName>/{{ .Values.matrixServerName }}/\" /app/config.json;
+            sed -i \"s/<HomeServerHostNameAndPort>/{{ .Values.homeServerHostNameAndPort }}/\" /app/config.json;
+            echo START of /app/config.json file content;
+            echo ' ';
+            cat /app/config.json;
+            echo ' ';
+            echo END of /app/config.json file content;"
+        volumeMounts:
+        - name: configuration
+          mountPath: /app
       containers:
       - env:
         {{- if (.Values.dnsEntry) }} 
