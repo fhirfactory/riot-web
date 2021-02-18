@@ -36,7 +36,7 @@ steps:
   displayName: 'Build a docker image'
   inputs:
     containerRegistry: 'AetherAzureContainerRegistry'
-    repository: '$(Build.Repository.Name)'
+    repository: '$(dockerImageName)'
     tags: '$(projectVersion)'
     command: 'build'
     Dockerfile: 'Dockerfile.element'
@@ -45,6 +45,6 @@ steps:
   displayName: 'Push a docker image'
   inputs:
     containerRegistry: 'AetherAzureContainerRegistry'
-    repository: '$(Build.Repository.Name)'
+    repository: '$(dockerImageName)'
     tags: '$(projectVersion)'
     command: 'push'
