@@ -1,0 +1,171 @@
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  annotations:
+    fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project={{ .Values.serviceName }}&var-version={{ .Values.imageTag }}
+  labels:
+    app: {{ .Values.serviceName }}
+    version: "{{ .Values.imageTag }}"
+  name: {{ .Values.serviceName }}
+spec:
+  replicas: {{ .Values.numOfPods | default 2 }}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: {{ .Values.serviceName }}
+  template:
+    metadata:
+      annotations:
+        fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project={{ .Values.serviceName }}&var-version={{ .Values.imageTag }}
+      labels:
+        app: {{ .Values.serviceName }}
+        version: "{{ .Values.imageTag }}"
+        date: "{{ date "20060102-150405" .Release.Time }}"
+    spec:
+      {{- if (.Values.acrSecretName) }} 
+      imagePullSecrets:
+        - name: {{ .Values.acrSecretName }}
+      {{- end }}
+#      affinity:
+#        nodeAffinity:
+#          preferredDuringSchedulingIgnoredDuringExecution:
+#          - weight: 1
+#            preference:
+#              matchExpressions:
+#              - key: computeResources
+#                operator: In
+#                values:
+#                - High
+      initContainers:
+      - name: init
+        image: alpine:3.12.3
+        imagePullPolicy: {{ .Values.imagePullPolicy | default "IfNotPresent" }}
+        command: 
+          - sh
+          - "-c"
+          - "echo Updating /app/config.json file;
+            [ -e /app/config-with-placeholders.json ] || cp /app/config.json /app/config-with-placeholders.json;
+            /bin/cp -f /app/config-with-placeholders.json /app/config.json;
+            sed -i \"s/<MatrixServerName>/{{ .Values.matrixServerName }}/\" /app/config.json;
+            sed -i \"s/<HomeServerHostNameAndPort>/{{ .Values.homeServerHostNameAndPort }}/\" /app/config.json;
+            echo START of /app/config.json file content;
+            echo ' ';
+            cat /app/config.json;
+            echo ' ';
+            echo END of /app/config.json file content;
+        {{- if (.Values.externalDnsEntry) }} 
+            echo Updating /app/default.conf file;
+            [ -e /app/default-with-placeholders.conf ] || cp /app/default.conf /app/default-with-placeholders.conf;
+            /bin/cp -f /app/default-with-placeholders.conf /app/default.conf;        
+            sed -i \"s/pegacorn-communicate-web.site-a/{{ .Values.externalDnsEntry }}/\" /app/default.conf;
+        {{- end }}
+            echo START of /app/default.conf file content;
+            echo ' ';
+            cat /app/default.conf;
+            echo ' ';
+            echo END of /app/default.conf file content;
+        "
+        volumeMounts:
+        - name: configuration
+          mountPath: /app
+        - name: certificates
+          mountPath: /etc/ssl/certs
+      containers:
+      - env:
+        {{- if (.Values.dnsEntry) }} 
+        - name: DNS_ENTRY
+          value: {{ .Values.dnsEntry }}
+        - name: {{ upper .Values.serviceName | replace "-" "_" }}_{{ upper .Release.Namespace | replace "-" "_" }}_DNS_ENTRY
+          value: {{ .Values.dnsEntry }}
+        {{- end }}
+        {{- if (.Values.externalDnsEntry) }} 
+        - name: EXTERNAL_DNS_ENTRY
+          value: {{ .Values.externalDnsEntry }}
+        - name: {{ upper .Values.serviceName | replace "-" "_" }}_{{ upper .Release.Namespace | replace "-" "_" }}_EXTERNAL_DNS_ENTRY
+          value: {{ .Values.externalDnsEntry }}
+        {{- end }}
+        - name: KUBERNETES_SERVICE_NAME
+          value: {{ .Values.serviceName }}
+        - name: {{ upper .Values.serviceName | replace "-" "_" }}_{{ upper .Release.Namespace | replace "-" "_" }}_KUBERNETES_SERVICE_NAME
+          value: {{ .Values.serviceName }}
+        - name: KUBERNETES_NAMESPACE
+          value: {{ .Release.Namespace }}
+        - name: {{ upper .Values.serviceName | replace "-" "_" }}_{{ upper .Release.Namespace | replace "-" "_" }}_KUBERNETES_NAMESPACE
+          value: {{ .Release.Namespace }}
+        - name: HELM_RELEASE_TIME
+          value: "{{ date "20060102-150405" .Release.Time }}"
+        - name: MY_HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: MY_POD_SERVICE_ACCOUNT
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.serviceAccountName
+        - name: JVM_MAX_HEAP_SIZE
+          value: "{{ .Values.jvmMaxHeapSizeMB }}m"
+        # Set the minimum memory that will be available on the node to assign to the container to be the jvmMaxHeapSizeMB plus 128 MB 
+        # for the native heap and operation system processes associated with running Java
+        # See https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/#motivation-for-memory-requests-and-limits
+        # and https://www.alibabacloud.com/blog/kubernetes-demystified-restrictions-on-java-application-resources_594108
+        resources:
+          requests:
+            memory: "{{ ( add 128 .Values.jvmMaxHeapSizeMB ) | default 2048 }}Mi"
+        image: {{ .Values.dockerRepo }}pegacorn-communicate-web:{{ .Values.imageTag }}            
+        imagePullPolicy: {{ .Values.imagePullPolicy | default "IfNotPresent" }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 443
+            scheme: HTTPS
+          initialDelaySeconds: 30
+        name: element
+        ports:
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 443
+            scheme: HTTPS
+          initialDelaySeconds: 10
+        securityContext:
+          privileged: false
+        volumeMounts:
+        - name: configuration
+          mountPath: /app/config.json
+          subPath: config.json  
+        - name: nginxconfig
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf  
+        - name: certificates
+          mountPath: /etc/ssl/certs
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds | default 30 }}
+      volumes:
+      - name: configuration
+        hostPath: 
+          path: {{ .Values.hostPath }}
+      - name: nginxconfig
+        hostPath: 
+          path: {{ .Values.hostPath }}
+      - name: certificates
+        hostPath: 
+          path: {{ .Values.hostPathCerts }}
