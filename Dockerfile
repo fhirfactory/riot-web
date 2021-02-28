@@ -1,3 +1,8 @@
+#NOTE: this docker file assumes the following exist in the same directory as this Dockerfile
+# 1. PRDPKICA.crt
+# 2. pegacorn-communicate-matrix-js-sdk
+# 3. pegacorn-communicate-matrix-react-sdk
+
 # Builder
 FROM fhirfactory/pegacorn-base-communicate-app-web:1.0.0 as builder
 
@@ -38,17 +43,18 @@ RUN yarn config set https-proxy ${HTTPS_PROXY} \
 # This explains why the ARG variables are commented out
 # RUN dos2unix /src/scripts/docker-link-repos.sh && bash /src/scripts/docker-link-repos.sh
 
-RUN cd pegacorn-communicate-matrix-js-sdk \
- && yarn link \
- && yarn --network-timeout 100000 install \
- && cd ../ \
- && cd pegacorn-communicate-matrix-react-sdk \
- && yarn link \
+WORKDIR /src/pegacorn-communicate-matrix-js-sdk
+RUN yarn link \
+ && yarn --network-timeout 100000 install
+ 
+WORKDIR /src/pegacorn-communicate-matrix-react-sdk
+RUN yarn link \
  && yarn link matrix-js-sdk \
  && yarn --network-timeout 100000 install \
- && yarn reskindex \
- && cd ../ \
- && yarn link matrix-js-sdk \
+ && yarn reskindex
+ 
+WORKDIR /src
+RUN yarn link matrix-js-sdk \
  && yarn link matrix-react-sdk \
  && yarn --network-timeout 100000 install \
  && yarn build
