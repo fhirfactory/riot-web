@@ -4,7 +4,7 @@
             "base_url": "https://pegacorn-communicate-roomserver.site-a:30880",
             "server_name": "chs.local.gov.au"
         },
-        "m.identity_server": {
+        "NOT_REQUIRED_m.identity_server": {
             "base_url": "https://vector.im"
         }
     },
@@ -22,6 +22,7 @@
         "https://scalar-staging.vector.im/api",
         "https://scalar-staging.riot.im/scalar/api"
     ],
+    "DISABLED_bug_report_endpoint_url": "https://element.io/bugreports/submit",
     "defaultCountryCode": "GB",
     "showLabsSettings": false,
     "features": {
@@ -34,7 +35,7 @@
             "matrix.org"
         ]
     },
-    "piwik": {
+    "DISABLED_piwik": {
         "url": "https://piwik.riot.im/",
         "whitelistedHSUrls": ["https://matrix.org"],
         "whitelistedISUrls": ["https://vector.im", "https://matrix.org"],
