@@ -102,14 +102,15 @@
             "expandCodeByDefault",
             "showCodeLineNumbers"
         ],
-        "webRtcForceTURN": true,
+        "webRtcForceTURN": false,
         "showChatEffects": false,
         "UIFeature.showAdvancedCallSettings": false,
         "UIFeature.securityAllowSessionEdits": false,
         "UIFeature.showEncryptionSettings": false,
         "UIFeature.showSimplifiedVersionInformation": true,
         "UIFeature.showAdvancedAboutInformation": false,
-        "MessageComposerInput.showStickersButton": false
+        "MessageComposerInput.showStickersButton": false,
+        "UIFeature.showOneToOneRTCCall":false
     },
     "jitsi": {
         "preferredDomain": "jitsi.riot.im"
