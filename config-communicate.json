@@ -102,14 +102,16 @@
             "expandCodeByDefault",
             "showCodeLineNumbers"
         ],
-        "webRtcForceTURN": false,
+        "webRtcForceTURN": true,
         "showChatEffects": false,
+        "UIFeature.showSettingMirrorLocalVideoFeed": false,
+        "UIFeature.showSettingAllowPeerToPeerForOneToOneCalls": false,
+        "UIFeature.showSettingAllowFallbackCallAssist": false,
         "UIFeature.securityAllowSessionEdits": false,
         "UIFeature.showEncryptionSettings": false,
         "UIFeature.showSimplifiedVersionInformation": true,
         "UIFeature.showAdvancedAboutInformation": false,
-        "MessageComposerInput.showStickersButton": false,
-        "UIFeature.showSettingAllowPeerToPeerForOneToOneCalls":false
+        "MessageComposerInput.showStickersButton": false
     },
     "jitsi": {
         "preferredDomain": "jitsi.riot.im"
