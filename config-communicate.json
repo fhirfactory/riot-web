@@ -1,0 +1,119 @@
+{
+    "default_server_config": {
+        "m.homeserver": {
+            "base_url": "https://pegacorn-communicate-roomserver.site-a:30880",
+            "server_name": "chs.local.gov.au"
+        },
+        "NOT_REQUIRED_m.identity_server": {
+            "base_url": "https://vector.im"
+        }
+    },
+    "disable_custom_urls": false,
+    "disable_guests": false,
+    "disable_login_language_selector": false,
+    "disable_3pid_login": false,
+    "brand": "Element",
+    "integrations_ui_url": "https://scalar.vector.im/",
+    "integrations_rest_url": "https://scalar.vector.im/api",
+    "integrations_widgets_urls": [
+        "https://scalar.vector.im/_matrix/integrations/v1",
+        "https://scalar.vector.im/api",
+        "https://scalar-staging.vector.im/_matrix/integrations/v1",
+        "https://scalar-staging.vector.im/api",
+        "https://scalar-staging.riot.im/scalar/api"
+    ],
+    "DISABLED_bug_report_endpoint_url": "https://element.io/bugreports/submit",
+    "defaultCountryCode": "GB",
+    "showLabsSettings": false,
+    "features": {
+        "feature_new_spinner": false
+    },
+    "default_federate": true,
+    "default_theme": "light",
+    "roomDirectory": {
+        "servers": [
+            "matrix.org"
+        ]
+    },
+    "DISABLED_piwik": {
+        "url": "https://piwik.riot.im/",
+        "whitelistedHSUrls": ["https://matrix.org"],
+        "whitelistedISUrls": ["https://vector.im", "https://matrix.org"],
+        "siteId": 1
+    },
+    "enable_presence_by_hs_url": {
+        "https://matrix.org": false,
+        "https://matrix-client.matrix.org": false
+    },
+    "settingDefaults": {
+        "breadcrumbs": true,
+        "UIFeature.changeTheme": false,
+        "UIFeature.changeFont": false,
+        "UIFeature.flair": false,
+        "UIFeature.advancedEncryption": false,
+        "UIFeature.advancedSettings": false,
+        "UIFeature.communities": false,
+        "UIFeature.feedback": false,
+        "integrationProvisioning": false,
+        "UIFeature.pullUpCompactLayout": true,
+        "UIFeature.changeDisplayName": false,
+        "UIFeature.editEmailAddresses": false,
+        "UIFeature.editPhoneNumbers": false,
+        "UIFeature.showDiscoverySection": false,
+        "UIFeature.deactivate": false,
+        "UIFeature.showPasswordReset": false,
+        "UIFeature.showLanguageField": false,
+        "UIFeature.showIntegrations": false,
+        "UIFeature.hiddenNotificationRules": [
+            ".m.rule.contains_display_name",
+            ".m.rule.contains_user_name",
+            ".m.rule.roomnotif",
+            ".m.rule.room_one_to_one",
+            ".m.rule.encrypted_room_one_to_one",
+            ".m.rule.message",
+            ".m.rule.encrypted",
+            ".m.rule.invite_for_me",
+            ".m.rule.call",
+            ".m.rule.suppress_notices",
+            ".m.rule.tombstone"
+        ],
+        "MessageComposerInput.ctrlEnterToSend": true,
+        "TextualBody.disableBigEmoji": true,
+        "hideAvatarChanges": true,
+        "hideDisplaynameChanges": true,
+        "UIFeature.preferencesShowGeneralSection": false,
+        "UIFeature.preferencesPaneHiddenFlags": [
+            "showImages",
+            "showDisplaynameChanges",
+            "showAvatarChanges",
+            "showJoinLeaves",
+            "enableSyntaxHighlightLanguageDetection",
+            "showRedactions",
+            "alwaysShowTimestamps",
+            "showTwelveHourTimestamps",
+            "showReadReceipts",
+            "TextualBody.enableBigEmoji",
+            "showTypingNotifications",
+            "Pill.shouldShowPillAvatar",
+            "showChatEffects",
+            "MessageComposerInput.autoReplaceEmoji",
+            "sendTypingNotifications",
+            "MessageComposerInput.showStickersButton",
+            "expandCodeByDefault",
+            "showCodeLineNumbers"
+        ],
+        "webRtcForceTURN": true,
+        "showChatEffects": false,
+        "UIFeature.showSettingMirrorLocalVideoFeed": false,
+        "UIFeature.showSettingAllowPeerToPeerForOneToOneCalls": false,
+        "UIFeature.showSettingAllowFallbackCallAssist": false,
+        "UIFeature.securityAllowSessionEdits": false,
+        "UIFeature.showEncryptionSettings": false,
+        "UIFeature.showSimplifiedVersionInformation": true,
+        "UIFeature.showAdvancedAboutInformation": false,
+        "MessageComposerInput.showStickersButton": false
+    },
+    "jitsi": {
+        "preferredDomain": "jitsi.riot.im"
+    }
+}

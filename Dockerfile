@@ -1,3 +1,8 @@
+#NOTE: this docker file assumes the following exist in the same directory as this Dockerfile
+# 1. PRDPKICA.crt
+# 2. pegacorn-communicate-matrix-js-sdk
+# 3. pegacorn-communicate-matrix-react-sdk
+
 # Builder
 FROM fhirfactory/pegacorn-base-communicate-app-web:1.0.0 as builder
 
@@ -29,27 +34,30 @@ COPY /jitsi_external_api.min.js /webapp/jitsi_external_api.min.js
 
 # Configuring certificate while SSL authentication is true
 # Configure yarn to use https proxy - https://stackoverflow.com/questions/51508364/yarn-there-appears-to-be-trouble-with-your-network-connection-retrying
-RUN yarn config set https-proxy http://ACTGOV%5C[Your first name]%20[Your Surname]:[Only insert your password (URL encoded) when required]@proxy.test.act.gov.au:9090
-RUN yarn config set strict-ssl true
-RUN yarn config set cafile /opt/PRDPKICA.crt
+ARG HTTPS_PROXY
+RUN yarn config set https-proxy ${HTTPS_PROXY} \
+ && yarn config set strict-ssl true \
+ && yarn config set cafile /opt/PRDPKICA.crt
 
 # Not mandatory when working with pegacorn sdk branches that were pulled locally
 # This explains why the ARG variables are commented out
 # RUN dos2unix /src/scripts/docker-link-repos.sh && bash /src/scripts/docker-link-repos.sh
 
-RUN cd pegacorn-communicate-matrix-js-sdk
-RUN yarn link
-RUN yarn --network-timeout 100000 install
-RUN cd ../
-
-RUN cd pegacorn-communicate-matrix-react-sdk
-#RUN yarn link
-RUN yarn link element-web
-RUN yarn --network-timeout 100000 install
-RUN cd ../
-
-RUN yarn --network-timeout 100000 install
-RUN yarn build
+WORKDIR /src/pegacorn-communicate-matrix-js-sdk
+RUN yarn link \
+ && yarn --network-timeout 100000 install
+ 
+WORKDIR /src/pegacorn-communicate-matrix-react-sdk
+RUN yarn link \
+ && yarn link matrix-js-sdk \
+ && yarn --network-timeout 100000 install \
+ && yarn reskindex
+ 
+WORKDIR /src
+RUN yarn link matrix-js-sdk \
+ && yarn link matrix-react-sdk \
+ && yarn --network-timeout 100000 install \
+ && yarn build
 
 # Copy the config now so that we don't create another layer in the app image
 RUN cp /src/config.json /src/webapp/config.json

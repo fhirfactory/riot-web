@@ -19,3 +19,6 @@ electron/pub
 /src/component-index.js
 /.tmp
 /webpack-stats.json
+/pegacorn-communicate-matrix-js-sdk
+/pegacorn-communicate-matrix-react-sdk
+/PRDPKICA.crt

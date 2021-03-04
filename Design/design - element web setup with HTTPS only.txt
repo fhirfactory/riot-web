@@ -43,11 +43,13 @@ Build and deploy
 E:
 cd \dev\github\pegacorn-communicate-app-web       (or where you have cloned the git project)
 
-docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot --file Dockerfile.element .
-OR do a full build with 
-  1) Copy paste docker-ssl-certificate from E:\docker-ssl-cert to your pegacorn-communicate-app-web directory
-  2) Copy pegacorn-communicate-matrix-react-sdk and pegacorn-communicate-matrix-js-sdk into src/ directory
-  3) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot .
+Do a full build with 
+  1) copy /Y \docker-ssl-certs\PRDPKICA.crt .
+  2) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-js-sdk pegacorn-communicate-matrix-js-sdk
+  3) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-react-sdk pegacorn-communicate-matrix-react-sdk
+  4) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" --build-arg HTTPS_PROXY="http://ACTGOV%5C[Your first name]%20[Your Surname]:[Only insert your password (URL encoded) when required]@proxy.test.act.gov.au:9090" -t pegacorn-communicate-web:1.0.0-snapshot .
+OR just secure uncustomised element with
+  docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot --file Dockerfile.element .
 
 \helm\helm upgrade pegacorn-communicate-web-site-a --install --namespace site-a --set serviceName=pegacorn-communicate-web,basePort=30890,hostPath=/data/element-web,hostPathCerts=/data/certificates,imageTag=1.0.0-snapshot,homeServerHostNameAndPort=pegacorn-communicate-roomserver.site-a:30880,matrixServerName=chs.local.gov.au,numOfPods=1 helm
 
