@@ -111,7 +111,8 @@
         "UIFeature.showEncryptionSettings": false,
         "UIFeature.showSimplifiedVersionInformation": true,
         "UIFeature.showAdvancedAboutInformation": false,
-        "MessageComposerInput.showStickersButton": false
+        "MessageComposerInput.showStickersButton": false,
+        "UIFeature.showShareAnalyticsInformation":false
     },
     "jitsi": {
         "preferredDomain": "jitsi.riot.im"
