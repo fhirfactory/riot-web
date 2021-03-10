@@ -109,7 +109,7 @@
         "UIFeature.showSettingAllowFallbackCallAssist": false,
         "UIFeature.securityAllowSessionEdits": false,
         "UIFeature.showEncryptionSettings": false,
-        "UIFeature.showSimplifiedVersionInformation": true,
+        "UIFeature.showSimplifiedVersionInformation": false,
         "UIFeature.showAdvancedAboutInformation": false,
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showShareAnalyticsInformation":false
