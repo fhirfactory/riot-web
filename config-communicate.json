@@ -81,6 +81,7 @@
         "TextualBody.disableBigEmoji": true,
         "hideAvatarChanges": true,
         "hideDisplaynameChanges": true,
+        "notificationsEnabled": true,
         "UIFeature.preferencesShowGeneralSection": false,
         "UIFeature.preferencesPaneHiddenFlags": [
             "showImages",
