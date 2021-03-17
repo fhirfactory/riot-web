@@ -1,3 +1,72 @@
+Changes in [1.7.23](https://github.com/vector-im/element-web/releases/tag/v1.7.23) (2021-03-15)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.23-rc.1...v1.7.23)
+
+ * Upgrade to React SDK 3.16.0 and JS SDK 9.9.0
+
+Changes in [1.7.23-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.23-rc.1) (2021-03-10)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.22...v1.7.23-rc.1)
+
+ * Upgrade to React SDK 3.16.0-rc.2 and JS SDK 9.9.0-rc.1
+ * Translations update from Weblate
+   [\#16655](https://github.com/vector-im/element-web/pull/16655)
+ * Improve docs for customisations
+   [\#16652](https://github.com/vector-im/element-web/pull/16652)
+ * Update triage guide to match the new label scheme
+   [\#16612](https://github.com/vector-im/element-web/pull/16612)
+ * Remove a couple useless 'use strict' calls
+   [\#16650](https://github.com/vector-im/element-web/pull/16650)
+ * Remove old conferencing doc
+   [\#16648](https://github.com/vector-im/element-web/pull/16648)
+ * Bump elliptic from 6.5.3 to 6.5.4
+   [\#16644](https://github.com/vector-im/element-web/pull/16644)
+ * Add option for audio live streaming
+   [\#16604](https://github.com/vector-im/element-web/pull/16604)
+ * Update velocity-animate dependency
+   [\#16605](https://github.com/vector-im/element-web/pull/16605)
+ * Add Edge to the supported tier
+   [\#16611](https://github.com/vector-im/element-web/pull/16611)
+ * Add multi language spell check
+   [\#15851](https://github.com/vector-im/element-web/pull/15851)
+ * Document feature_spaces
+   [\#16538](https://github.com/vector-im/element-web/pull/16538)
+
+Changes in [1.7.22](https://github.com/vector-im/element-web/releases/tag/v1.7.22) (2021-03-01)
+===============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.22-rc.1...v1.7.22)
+
+## Security notice
+
+Element Web 1.7.22 fixes (by upgrading to matrix-react-sdk 3.15.0) a low
+severity issue (CVE-2021-21320) where the user content sandbox can be abused to
+trick users into opening unexpected documents. The content is opened with a
+`blob` origin that cannot access Matrix user data, so messages and secrets are
+not at risk.  Thanks to @keerok for responsibly disclosing this via Matrix's
+Security Disclosure Policy.
+
+## All changes
+
+ * Upgrade to React SDK 3.15.0 and JS SDK 9.8.0
+
+Changes in [1.7.22-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.22-rc.1) (2021-02-24)
+=========================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.21...v1.7.22-rc.1)
+
+ * Upgrade to React SDK 3.15.0-rc.1 and JS SDK 9.8.0-rc.1
+ * Translations update from Weblate
+   [\#16529](https://github.com/vector-im/element-web/pull/16529)
+ * Add hostSignup config for element.io clients
+   [\#16515](https://github.com/vector-im/element-web/pull/16515)
+ * VoIP virtual rooms, mkII
+   [\#16442](https://github.com/vector-im/element-web/pull/16442)
+ * Jitsi widget: Read room name from query parameters
+   [\#16456](https://github.com/vector-im/element-web/pull/16456)
+ * fix / sso: make sure to delete only loginToken after redirect
+   [\#16415](https://github.com/vector-im/element-web/pull/16415)
+ * Disable Countly
+   [\#16433](https://github.com/vector-im/element-web/pull/16433)
+
 Changes in [1.7.21](https://github.com/vector-im/element-web/releases/tag/v1.7.21) (2021-02-16)
 ===============================================================================================
 [Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.21-rc.1...v1.7.21)
