@@ -55,8 +55,9 @@
         "UIFeature.communities": false,
         "UIFeature.feedback": false,
         "integrationProvisioning": false,
-        "UIFeature.pullUpFontLayoutCheckbox": false,
-        "UIFeature.pullUpIRCLayoutCheckbox": false,
+        "UIFeature.showSettingFontStyleLayout": false,
+        "UIFeature.defaultFontSize": 15,
+        "UIFeature.showSettingIRCStyleLayout": false,
         "UIFeature.changeDisplayName": false,
         "UIFeature.editEmailAddresses": false,
         "UIFeature.editPhoneNumbers": false,
@@ -121,8 +122,7 @@
         "UIFeature.showEncryptionSettings": false,
         "UIFeature.showSimplifiedVersionInformation": false,
         "UIFeature.showAdvancedAboutInformation": false,
-        "MessageComposerInput.showStickersButton": false,
-        "UIFeature.showShareAnalyticsInformation": false
+        "MessageComposerInput.showStickersButton": false
     },
     "DISABLED_jitsi": {
         "preferredDomain": null
