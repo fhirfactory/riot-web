@@ -123,7 +123,6 @@
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
         "UIFeature.showLiberateToCommunicateText": false,
-        "UIFeature.performSessionVerification": false,
         "UIFeature.secondaryLogoUrl": ["themes/element/img/logos/element-logo-secondary.png"]
 
     },
