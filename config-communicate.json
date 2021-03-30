@@ -123,26 +123,12 @@
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
         "UIFeature.showLiberateToCommunicateText": false,
-        "UIFeature.secondaryLogoUrl": ["themes/element/img/logos/element-logo-secondary.png"]
-
+        "UIFeature.secondaryLogoUrl": ["themes/element/img/logos/element-logo-secondary.png"],
+        "UIFeature.lookForWellKnownConfigFromHomeServer": true
     },
     "DISABLED_jitsi": {
-        "preferredDomain": null
+        "preferredDomain": "jitsi.riot.im"
     },
-    "terms_and_conditions_links": [
-        {
-            "url": "https://www.act.gov.au/privacy",
-            "text": "Terms and Condition"
-        },
-        {
-            "url": "https://www.act.gov.au/privacy",
-            "text": "Privacy Policy"
-        },
-        {
-            "url": "https://www.act.gov.au/privacy",
-            "text": "Credit"
-        }
-    ],
     "custom_themes": [
         {
             "name": "Pegacorn communicate - Light theme custom colors",
