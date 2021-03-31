@@ -45,9 +45,13 @@ cd \dev\github\pegacorn-communicate-app-web       (or where you have cloned the 
 
 Do a full build with 
   1) copy /Y \docker-ssl-certs\PRDPKICA.crt .
-  2) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-js-sdk pegacorn-communicate-matrix-js-sdk
-  3) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-react-sdk pegacorn-communicate-matrix-react-sdk
-  4) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" --build-arg HTTPS_PROXY="http://ACTGOV%5C[Your first name]%20[Your Surname]:[Only insert your password (URL encoded) when required]@proxy.test.act.gov.au:9090" -t pegacorn-communicate-web:1.0.0-snapshot .
+  2) rmdir /S /Q pegacorn-communicate-matrix-js-sdk
+  3) rmdir /S /Q pegacorn-communicate-matrix-react-sdk
+  4) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-js-sdk pegacorn-communicate-matrix-js-sdk
+  5) Xcopy /E /I /Y ..\pegacorn-communicate-matrix-react-sdk pegacorn-communicate-matrix-react-sdk
+  6) Xcopy /E /I /Y \dev\aether-host-files\common\element-web\matrix-react-sdk pegacorn-communicate-matrix-react-sdk
+  7) Xcopy /E /I /Y \dev\aether-host-files\common\element-web\lingo-app-web .
+  8) docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" --build-arg HTTPS_PROXY="http://ACTGOV%5C[Your first name]%20[Your Surname]:[Only insert your password (URL encoded) when required]@proxy.test.act.gov.au:9090" -t pegacorn-communicate-web:1.0.0-snapshot .
 OR just secure uncustomised element with
   docker build --rm --build-arg IMAGE_BUILD_TIMESTAMP="%date% %time%" -t pegacorn-communicate-web:1.0.0-snapshot --file Dockerfile.element .
 
