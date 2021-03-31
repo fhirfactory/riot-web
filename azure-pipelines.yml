@@ -6,6 +6,9 @@
 resources:
   repositories:
   - repository: self
+    type: github
+    endpoint: fhirfactory
+    name: fhirfactory/pegacorn-communicate-app-web
     ref:  feature/219810-lingo-branding
   - repository: matrix-js-sdk
     type: github
