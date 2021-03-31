@@ -5,18 +5,23 @@
 
 resources:
   repositories:
-  - repository: MatrixJsSDK
+  - repository: self
+    ref:  feature/219810-lingo-branding
+  - repository: matrix-js-sdk
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-js-sdk
-  - repository: MatrixReactSDK
+    ref:  fix/api-well-known-config
+  - repository: matrix-react-sdk
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-react-sdk
+    ref:  feature/lingo-branding  
   - repository: aether-host-files
     type: git
     name: Pegacorn/aether-host-files
-
+    ref:  feature/219811-lingo-web-branding  
+    
 trigger:
 - master
 
@@ -31,18 +36,16 @@ pool:
 
 steps:
 - checkout: self
-- checkout: MatrixJsSDK
-- checkout: MatrixReactSDK
+- checkout: matrix-js-sdk
+- checkout: matrix-react-sdk
 - checkout: aether-host-files
 - bash: |
     buildTimestamp=$(TZ='Australia/Sydney' date --rfc-3339='seconds')
-    pwd
-    ls -la
-    cd $(System.DefaultWorkingDirectory)
-    ls -la
-    cd pegacorn-communicate-app-web
+    cd $(System.DefaultWorkingDirectory)/pegacorn-communicate-app-web
     cp -r ../pegacorn-communicate-matrix-js-sdk .
     cp -r ../pegacorn-communicate-matrix-react-sdk .
+    cp -rf ../aether-host-files/common/element-web/matrix-react-sdk/* pegacorn-communicate-matrix-react-sdk/
+    cp -rf ../aether-host-files/common/element-web/lingo-app-web/* .
 - task: Docker@2
   displayName: 'Build a docker image'
   inputs:
