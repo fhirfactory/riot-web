@@ -5,35 +5,26 @@
 
 resources:
   repositories:
-  - repository: self
-    type: github
-    endpoint: fhirfactory
-    name: fhirfactory/pegacorn-communicate-app-web
-    ref:  feature/219810-lingo-branding
   - repository: matrix-js-sdk
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-js-sdk
-    ref:  fix/api-well-known-config
   - repository: matrix-react-sdk
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-react-sdk
-    ref:  feature/lingo-branding  
   - repository: aether-host-files
     type: git
     name: Pegacorn/aether-host-files
-    ref:  feature/219811-lingo-web-branding  
     
 trigger:
-- feature/219810-lingo-branding
-#- master
+- master
 
 variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
 #  dockerImageName: '$(Build.Repository.Name)'
   dockerImageName: 'pegacorn-communicate-web'
-  projectVersion: '1.0.0-snapshot2'
+  projectVersion: '1.0.0-snapshot'
 
 pool:
   vmImage: 'ubuntu-latest'
