@@ -26,7 +26,8 @@ resources:
     ref:  feature/219811-lingo-web-branding  
     
 trigger:
-- master
+- feature/219810-lingo-branding
+#- master
 
 variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
