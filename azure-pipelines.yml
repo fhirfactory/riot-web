@@ -3,35 +3,53 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-#resources:
-#  repositories:
-#  - repository: PegacornBuildingblocks
-#    type: github
-#    endpoint: fhirfactory
-#    name: fhirfactory/pegacorn-buildingblocks
-#  - repository: PegacornBuildingblocksEdge
-#    type: github
-#    endpoint: fhirfactory
-#    name: fhirfactory/pegacorn-buildingblocks-edge
-
+resources:
+  repositories:
+  - repository: self
+    type: github
+    endpoint: fhirfactory
+    name: fhirfactory/pegacorn-communicate-app-web
+    ref:  feature/219810-lingo-branding
+  - repository: matrix-js-sdk
+    type: github
+    endpoint: fhirfactory
+    name: fhirfactory/pegacorn-communicate-matrix-js-sdk
+    ref:  fix/api-well-known-config
+  - repository: matrix-react-sdk
+    type: github
+    endpoint: fhirfactory
+    name: fhirfactory/pegacorn-communicate-matrix-react-sdk
+    ref:  feature/lingo-branding  
+  - repository: aether-host-files
+    type: git
+    name: Pegacorn/aether-host-files
+    ref:  feature/219811-lingo-web-branding  
+    
 trigger:
-- master
+- feature/219810-lingo-branding
+#- master
 
 variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
 #  dockerImageName: '$(Build.Repository.Name)'
   dockerImageName: 'pegacorn-communicate-web'
-  projectVersion: '1.0.0-snapshot'
+  projectVersion: '1.0.0-snapshot2'
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - checkout: self
-#- checkout: PegacornBuildingblocks
-#- checkout: PegacornBuildingblocksEdge
+- checkout: matrix-js-sdk
+- checkout: matrix-react-sdk
+- checkout: aether-host-files
 - bash: |
     buildTimestamp=$(TZ='Australia/Sydney' date --rfc-3339='seconds')
+    cd $(System.DefaultWorkingDirectory)/pegacorn-communicate-app-web
+    cp -r ../pegacorn-communicate-matrix-js-sdk .
+    cp -r ../pegacorn-communicate-matrix-react-sdk .
+    cp -rf ../aether-host-files/common/element-web/matrix-react-sdk/* pegacorn-communicate-matrix-react-sdk/
+    cp -rf ../aether-host-files/common/element-web/lingo-app-web/* .
 - task: Docker@2
   displayName: 'Build a docker image'
   inputs:
@@ -39,7 +57,7 @@ steps:
     repository: '$(dockerImageName)'
     tags: '$(projectVersion)'
     command: 'build'
-    Dockerfile: 'Dockerfile.element'
+    Dockerfile: 'pegacorn-communicate-app-web/Dockerfile'
     arguments: '--build-arg IMAGE_BUILD_TIMESTAMP="$(buildTimestamp)"'
 - task: Docker@2
   displayName: 'Push a docker image'
