@@ -50,7 +50,7 @@ steps:
     repository: '$(dockerImageName)'
     tags: '$(projectVersion)'
     command: 'build'
-    Dockerfile: 'Dockerfile'
+    Dockerfile: 'pegacorn-communicate-app-web/Dockerfile'
     arguments: '--build-arg IMAGE_BUILD_TIMESTAMP="$(buildTimestamp)"'
 - task: Docker@2
   displayName: 'Push a docker image'
