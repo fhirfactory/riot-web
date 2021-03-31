@@ -19,7 +19,7 @@ WORKDIR /src
 COPY . /src
 
 # Copy certificate
-COPY /PRDPKICA.crt /opt
+#COPY /PRDPKICA.crt /opt
 
 # gyp ERR! stack Error: connect ECONNREFUSED 104.20.23.46:443 - when we run yarn install (proxy blocking operation)
 # https://github.com/nodejs/node-gyp/issues/1133
@@ -34,10 +34,10 @@ COPY /jitsi_external_api.min.js /webapp/jitsi_external_api.min.js
 
 # Configuring certificate while SSL authentication is true
 # Configure yarn to use https proxy - https://stackoverflow.com/questions/51508364/yarn-there-appears-to-be-trouble-with-your-network-connection-retrying
-ARG HTTPS_PROXY
-RUN yarn config set https-proxy ${HTTPS_PROXY} \
- && yarn config set strict-ssl true \
- && yarn config set cafile /opt/PRDPKICA.crt
+#ARG HTTPS_PROXY
+#RUN yarn config set https-proxy ${HTTPS_PROXY} \
+# && yarn config set strict-ssl true \
+# && yarn config set cafile /opt/PRDPKICA.crt
 
 # Not mandatory when working with pegacorn sdk branches that were pulled locally
 # This explains why the ARG variables are commented out
