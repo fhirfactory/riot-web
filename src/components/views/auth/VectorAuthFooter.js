@@ -18,6 +18,7 @@ limitations under the License.
 import React from 'react';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import { _t } from 'matrix-react-sdk/src/languageHandler';
+import { showDefaultFooterLinks } from 'matrix-react-sdk/src/config';
 
 const VectorAuthFooter = () => {
     const brandingConfig = SdkConfig.get().branding;
@@ -26,6 +27,9 @@ const VectorAuthFooter = () => {
         {"text": "Twitter", "url": "https://twitter.com/element_hq"},
         {"text": "GitHub", "url": "https://github.com/vector-im/element-web"},
     ];
+    if(!showDefaultFooterLinks){
+        links = [];
+    }
 
     if (brandingConfig && brandingConfig.authFooterLinks) {
         links = brandingConfig.authFooterLinks;
