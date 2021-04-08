@@ -34,10 +34,14 @@ export default class VectorAuthHeaderLogo extends React.PureComponent {
             logoUrl = brandingConfig.authHeaderLogoUrl;
         }
 
+        const logoSecondaryVerticalStyle = {
+            margin: '25px auto 30px'
+        }
+
         return (
             <div className="mx_AuthHeaderLogo">
                 <img src={logoUrl} alt="Element" />
-                {logoUrlSecondaryVertical && <img src={logoUrlSecondaryVertical} style={{marginTop: 30 + 'px'}} alt="Element Secondary Logo"/>}
+                {logoUrlSecondaryVertical && <img src={logoUrlSecondaryVertical} style={logoSecondaryVerticalStyle} alt="Element Secondary Logo"/>}
             </div>
         );
     }
