@@ -17,6 +17,7 @@ limitations under the License.
 import React from 'react';
 import * as sdk from 'matrix-react-sdk/src/index';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
+import * as config from 'matrix-react-sdk/src/config';
 
 export default class VectorAuthPage extends React.PureComponent {
     static replaces = 'AuthPage'
@@ -38,6 +39,9 @@ export default class VectorAuthPage extends React.PureComponent {
             }
         }
 
+        if(config.splashScreenBackgroundColor){
+            VectorAuthPage.welcomeBackgroundUrl = config.splashScreenBackgroundColor;
+        }
         return VectorAuthPage.welcomeBackgroundUrl;
     }
 
