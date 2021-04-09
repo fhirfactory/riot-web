@@ -39,6 +39,7 @@
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
+    "secondary_logo_description": "ACT Govt Logo",
     "roomDirectory": {
         "servers": [
             "matrix.org"
