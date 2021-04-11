@@ -13,13 +13,14 @@
     "disable_login_language_selector": false,
     "disable_3pid_login": false,
     "brand": "Lingo",
-    "branding": [
-        {"authFooterLinks": [
-            {"url": "",
-            "text": ""}
-            ]
-        }
-    ],
+    "branding": {
+        "authFooterLinks": [
+            {
+                "text": "",
+                "url": ""
+            }
+        ]
+    },
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
     "integrations_widgets_urls": [
@@ -47,21 +48,28 @@
     },
     "DISABLED_piwik": {
         "url": "https://piwik.riot.im/",
-        "whitelistedHSUrls": ["https://matrix.org"],
-        "whitelistedISUrls": ["https://vector.im", "https://matrix.org"],
+        "whitelistedHSUrls": [
+            "https://matrix.org"
+        ],
+        "whitelistedISUrls": [
+            "https://vector.im",
+            "https://matrix.org"
+        ],
         "siteId": 1
     },
     "enable_presence_by_hs_url": {
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
     },
-    "hiddenSplashScreenMenuItem":[
+    "hiddenSplashScreenMenuItem": [
         "showHomeServerInfoOnSplashScreen",
         "showPhoneLoginDropdownOption",
         "showMatrixDefaultFooterLinks",
         "allowPhoneBasedAuthentication",
         "changeSigninWithLoginTextLabel",
-        {"splashScreenBackgroundColor": "(0,38, 119)"}
+        {
+            "splashScreenBackgroundColor": "(0,38, 119)"
+        }
     ],
     "settingDefaults": {
         "breadcrumbs": true,
@@ -132,7 +140,9 @@
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
         "UIFeature.showLiberateYourCommunicationText": false,
-        "UIFeature.secondaryLogoUrl": ["themes/element/img/logos/element-logo-secondary.png"],
+        "UIFeature.secondaryLogoUrl": [
+            "themes/element/img/logos/element-logo-secondary.png"
+        ],
         "UIFeature.lookForWellKnownConfigFromHomeServer": true,
         "UIFeature.passwordReset": false,
         "UIFeature.registration": false,
