@@ -61,14 +61,14 @@
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
     },
-    "hiddenSplashScreenMenuItem": [
-        "showHomeServerInfoOnSplashScreen",
+    "hiddenLoginScreenMenuItem": [
+        "showHomeServerInfoOnLoginScreen",
         "showPhoneLoginDropdownOption",
         "showMatrixDefaultFooterLinks",
         "allowPhoneBasedAuthentication",
         "changeSigninWithLoginTextLabel",
         {
-            "splashScreenBackgroundColor": "(0,38, 119)"
+            "loginScreenBackgroundColor": "(0,38, 119)"
         }
     ],
     "settingDefaults": {
