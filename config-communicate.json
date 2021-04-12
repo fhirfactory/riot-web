@@ -40,7 +40,12 @@
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
-    "secondary_logo_description": "ACT Govt Logo",
+    "logo_secondary_style": {
+        "height": "55px",
+        "margin": "0 10px",
+        "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
+        "description": "ACT Govt Logo"
+    },
     "roomDirectory": {
         "servers": [
             "matrix.org"
@@ -61,7 +66,7 @@
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
     },
-    "hiddenLoginScreenMenuItem": [
+    "loginScreen": [
         "showHomeServerInfoOnLoginScreen",
         "showPhoneLoginDropdownOption",
         "showMatrixDefaultFooterLinks",
@@ -140,9 +145,6 @@
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
         "UIFeature.showLiberateYourCommunicationText": false,
-        "UIFeature.secondaryLogoUrl": [
-            "themes/element/img/logos/element-logo-secondary.png"
-        ],
         "UIFeature.lookForWellKnownConfigFromHomeServer": true,
         "UIFeature.passwordReset": false,
         "UIFeature.registration": false,
