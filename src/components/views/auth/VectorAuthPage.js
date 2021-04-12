@@ -39,8 +39,8 @@ export default class VectorAuthPage extends React.PureComponent {
             }
         }
 
-        if(config.splashScreenBackgroundColor){
-            VectorAuthPage.welcomeBackgroundUrl = config.splashScreenBackgroundColor;
+        if(config.loginScreenBackgroundColor){
+            VectorAuthPage.welcomeBackgroundUrl = config.loginScreenBackgroundColor;
         }
         return VectorAuthPage.welcomeBackgroundUrl;
     }
