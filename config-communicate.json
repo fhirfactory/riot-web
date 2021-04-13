@@ -40,11 +40,23 @@
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
-    "logo_secondary_style": {
+    "logo_secondary": {
         "height": "55px",
         "margin": "0 10px",
         "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
         "description": "ACT Govt Logo"
+    },
+    "footer": {
+        "brand": {
+            "description": "ACT Health"
+        },
+        "logo": {
+            "description": "ACT Govt Logo",
+            "url": "themes/element/img/logos/ACTGov_inline_rev.png",
+            "height": "55px",
+            "margin": "0 10px",
+            "padding": "0 20px"
+        }
     },
     "roomDirectory": {
         "servers": [
