@@ -8,19 +8,19 @@
             "base_url": "https://vector.im"
         }
     },
-    "disable_custom_urls": false,
+    "disable_custom_urls": true,
     "disable_guests": false,
     "disable_login_language_selector": false,
     "disable_3pid_login": false,
     "brand": "Lingo",
-    "branding": [
-        {"authHeaderLogoUrl": ""},
-        {"authFooterLinks": [
-            {"url": "",
-            "text": ""}
-            ]
-        }
-    ],
+    "branding": {
+        "authFooterLinks": [
+            {
+                "text": "",
+                "url": ""
+            }
+        ]
+    },
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
     "integrations_widgets_urls": [
@@ -39,6 +39,25 @@
     "default_federate": true,
     "default_theme": "light",
     "feature_custom_themes": true,
+    "auto_redirect_from_welcome_screen_to_login": true,
+    "logo_secondary": {
+        "height": "55px",
+        "margin": "0 10px",
+        "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
+        "description": "ACT Govt Logo"
+    },
+    "footer": {
+        "brand": {
+            "description": "ACT Health"
+        },
+        "logo": {
+            "description": "ACT Govt Logo",
+            "url": "themes/element/img/logos/ACTGov_inline_rev.png",
+            "height": "55px",
+            "margin": "0 10px",
+            "padding": "0 20px"
+        }
+    },
     "roomDirectory": {
         "servers": [
             "matrix.org"
@@ -53,6 +72,14 @@
     "enable_presence_by_hs_url": {
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
+    },
+    "loginScreen": {
+        "showHomeServerInfo": false,
+        "showMatrixDefaultFooterLinks": false,
+        "allowPhoneBasedAuthentication": false,
+        "allowEmailBasedAuthentication": false,
+        "changeSigninToLoginTextLabel": true,
+        "backgroundColor": "(0,38, 119)"
     },
     "settingDefaults": {
         "breadcrumbs": true,
@@ -123,46 +150,43 @@
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
         "UIFeature.showLiberateYourCommunicationText": false,
-        "UIFeature.secondaryLogoUrl": ["themes/element/img/logos/element-logo-secondary.png"],
-        "UIFeature.lookForWellKnownConfigFromHomeServer": true
-    },
-    "DISABLED_jitsi": {
-        "preferredDomain": "jitsi.riot.im"
-    },
-    "custom_themes": [
-        {
-            "name": "Pegacorn communicate - Light theme custom colors",
-            "is_dark": false,
-            "fonts": {
-                "faces": [
-                    {
-                        "font-family": "Inter",
-                        "src": [{"url": "/fonts/Inter-Regular.woff", "format": "ttf"}]
-                    }
-                ],
-                "general": "Inter, sans",
-                "monospace": "'Courier New'"
-            },
-            "colors": {
-                "$primary-color": "rgb(0, 38, 119)",
-                "$accent-color": "rgb(0, 130, 140)",
-                "$warning-color": "rgb(255, 75, 85)",
-                "sidebar-color": "rgb(39, 48, 58)",
-                "roomlist-background-color": "rgb(243, 248, 253)",
-                "roomlist-text-color": "rgb(46, 47, 50)",
-                "roomlist-text-secondary-color":"rgb(97, 112, 139)",
-                "roomlist-highlights-color": "rgb(255, 255, 255)",
-                "roomlist-separator-color": "rgb(227, 232, 240)",
-                "timeline-background-color": "rgb(255, 255, 255)",
-                "timeline-text-color": "rgb(46, 47, 50)",
-                "timeline-text-secondary-color": "rgb(97, 112, 139)",
-                "timeline-highlights-color": "rgb(243, 248, 253)",
-                "avatar-bg-color": [
-                    "rgb(0, 38, 119)",
-                    "rgb(0, 121, 164)",
-                    "rgb(72, 45, 140)"
-                ],
-                "username-colors":[
+        "UIFeature.lookForWellKnownConfigFromHomeServer": true,
+        "UIFeature.passwordReset": false,
+        "UIFeature.registration": false,
+        "custom_themes": [
+            {
+                "name": "Pegacorn communicate - Light theme custom colors",
+                "is_dark": false,
+                "fonts": {
+                    "faces": [
+                        {
+                            "font-family": "Inter",
+                        	"src": [{"url": "/fonts/Inter-Regular.woff", "format": "ttf"}]
+                        }
+                    ],
+                    "general": "Inter, sans",
+                    "monospace": "'Courier New'"
+                },
+                "colors": {
+                    "$primary-color": "rgb(0, 38, 119)",
+                    "$accent-color": "rgb(0, 130, 140)",
+                    "$warning-color": "rgb(255, 75, 85)",
+                    "sidebar-color": "rgb(39, 48, 58)",
+                    "roomlist-background-color": "rgb(243, 248, 253)",
+                    "roomlist-text-color": "rgb(46, 47, 50)",
+                    "roomlist-text-secondary-color": "rgb(97, 112, 139)",
+                    "roomlist-highlights-color": "rgb(255, 255, 255)",
+                    "roomlist-separator-color": "rgb(227, 232, 240)",
+                    "timeline-background-color": "rgb(255, 255, 255)",
+                    "timeline-text-color": "rgb(46, 47, 50)",
+                    "timeline-text-secondary-color": "rgb(97, 112, 139)",
+                    "timeline-highlights-color": "rgb(243, 248, 253)",
+                    "avatar-bg-color": [
+                        "rgb(0, 38, 119)",
+                        "rgb(0, 121, 164)",
+                        "rgb(72, 45, 140)"
+                    ],
+                    "username-colors": [
                         "rgb(0, 38, 119)",
                         "rgb(0, 121, 164)",
                         "rgb(72, 45, 140)",
@@ -172,13 +196,17 @@
                         "rgb(52, 55, 66)",
                         "rgb(119, 117, 103)",
                         "rgb(122, 93, 203)"
-                ],
-                "avatar-background-colors": [
-                    "rgb(0, 38, 119)",
-                    "rgb(0, 121, 164)",
-                    "rgb(72, 45, 140)"
-                ]
+                    ],
+                    "avatar-background-colors": [
+                        "rgb(0, 38, 119)",
+                        "rgb(0, 121, 164)",
+                        "rgb(72, 45, 140)"
+                    ]
+                }
             }
-        }
-    ]
+        ]
+    },
+    "DISABLED_jitsi": {
+        "preferredDomain": "jitsi.riot.im"
+    }
 }
