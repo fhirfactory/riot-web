@@ -27,22 +27,24 @@ export default class VectorAuthHeaderLogo extends React.PureComponent {
     }
 
     render() {
+        const config = SdkConfig.get();
         const brandingConfig = SdkConfig.get().branding;
-        const logoSecondaryDescription = SdkConfig.get()['secondary_logo_description'];
+        const logoSecondaryDescription = config?.logo?.logo_secondary?.description;
+        const showSecondaryLogoOnLoginScreen = config?.logo?.showSecondaryLogoOnLoginScreen;
         let logoUrl = "themes/element/img/logos/element-logo.svg";
-        let logoUrlSecondaryVertical = "themes/element/img/logos/element-logo-secondary-vertical.png";
+        let logoUrlSecondary = "themes/element/img/logos/element-logo-secondary.png";
         if (brandingConfig && brandingConfig.authHeaderLogoUrl) {
             logoUrl = brandingConfig.authHeaderLogoUrl;
         }
 
-        const logoSecondaryVerticalStyle = {
-            margin: '25px auto 30px'
+        const logoSecondaryStyle = {
+            marginBottom: '25px'
         }
 
         return (
             <div className="mx_AuthHeaderLogo">
-                <img src={logoUrl} alt="Element" />
-                {logoUrlSecondaryVertical && <img src={logoUrlSecondaryVertical} style={logoSecondaryVerticalStyle} alt={logoSecondaryDescription}/>}
+                {showSecondaryLogoOnLoginScreen && <img src={logoUrlSecondary} style={logoSecondaryStyle} alt={logoSecondaryDescription}/>}
+                <img src={logoUrl} alt="Element"/>
             </div>
         );
     }

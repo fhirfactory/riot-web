@@ -30,6 +30,7 @@ export default class VectorAuthPage extends React.PureComponent {
 
         const brandingConfig = SdkConfig.get().branding;
         VectorAuthPage.welcomeBackgroundUrl = "themes/element/img/backgrounds/lake.jpg";
+        const loginScreenBackgroundColor = SdkConfig.get().loginScreen?.loginScreenBackgroundColor;
         if (brandingConfig && brandingConfig.welcomeBackgroundUrl) {
             if (Array.isArray(brandingConfig.welcomeBackgroundUrl)) {
                 const index = Math.floor(Math.random() * brandingConfig.welcomeBackgroundUrl.length);
@@ -39,8 +40,8 @@ export default class VectorAuthPage extends React.PureComponent {
             }
         }
 
-        if(config.loginScreenBackgroundColor){
-            VectorAuthPage.welcomeBackgroundUrl = config.loginScreenBackgroundColor;
+        if(!config.showLoginScreenBackgroundImage){
+            VectorAuthPage.welcomeBackgroundUrl = loginScreenBackgroundColor;
         }
         return VectorAuthPage.welcomeBackgroundUrl;
     }
