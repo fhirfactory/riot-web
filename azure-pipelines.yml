@@ -21,7 +21,7 @@ trigger:
 - master
 
 pr:
-- master
+- nomatch
 
 variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
