@@ -58,9 +58,8 @@ const VectorAuthFooter = () => {
             {showDefaultFooterLinks ?
             <a href="https://matrix.org" target="_blank" rel="noreferrer noopener">{ _t('Powered by Matrix') }</a>
                 :<span className="mx_AuthFooter_brand">
-                    <img src={footerConfig.logo?.url} style={footerLogoStyle} alt={footerConfig.logo?.description} />
-                    <h4>{footerConfig.brand?.description}</h4>
-                </span>}
+                    <img src={footerConfig.logo?.url} style={footerLogoStyle} alt={footerConfig.logo?.description} />                   
+                </span>}               
         </div>
     );
 };
