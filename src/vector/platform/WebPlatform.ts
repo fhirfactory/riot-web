@@ -168,13 +168,7 @@ export default class WebPlatform extends VectorBasePlatform {
     };
 
     startUpdateCheck() {
-        super.startUpdateCheck();
-        this.pollForUpdate().then((updateState) => {
-            dis.dispatch<CheckUpdatesPayload>({
-                action: Action.CheckUpdates,
-                ...updateState,
-            });
-        });
+        //removed the code to disable version update
     }
 
     installUpdate() {
