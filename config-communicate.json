@@ -40,10 +40,8 @@
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
-    "logo_authheader_act": {      
-        "display":false
-    },
     "logo_secondary": {
+        "display":true,
         "height": "55px",
         "margin": "0 10px",
         "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
