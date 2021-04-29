@@ -75,7 +75,7 @@
         "https://matrix-client.matrix.org": false
     },
     "loginScreen": {
-        "displayActLogo":false,
+        "displaySecondaryLogo":false,
         "showHomeServerInfo": false,
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
@@ -84,7 +84,7 @@
         "backgroundColor": "(0,38, 119)"
     },
     "tabbedView":{
-        "displayActLogo":false
+        "displaySecondaryLogo":false
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText":false,
