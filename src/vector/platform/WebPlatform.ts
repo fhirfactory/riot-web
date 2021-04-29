@@ -25,6 +25,7 @@ import {Room} from "matrix-js-sdk/src/models/room";
 import {hideToast as hideUpdateToast, showToast as showUpdateToast} from "matrix-react-sdk/src/toasts/UpdateToast";
 import {Action} from "matrix-react-sdk/src/dispatcher/actions";
 import { CheckUpdatesPayload } from 'matrix-react-sdk/src/dispatcher/payloads/CheckUpdatesPayload';
+import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 
 import UAParser from 'ua-parser-js';
 
@@ -168,7 +169,17 @@ export default class WebPlatform extends VectorBasePlatform {
     };
 
     startUpdateCheck() {
-        //removed the code to disable version update
+        //disable version update based on configuration values
+        const checkForUpdates = SdkConfig.get().checkForUpdates ?? true;
+        if(checkForUpdates){
+            super.startUpdateCheck();
+            this.pollForUpdate().then((updateState) => {
+                dis.dispatch<CheckUpdatesPayload>({
+                    action: Action.CheckUpdates,
+                    ...updateState,
+                });
+            });
+        }
     }
 
     installUpdate() {
