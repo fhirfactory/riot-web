@@ -84,11 +84,14 @@
         "backgroundColor": "(0,38, 119)"
     },
     "tabbedView":{
-        "displaySecondaryLogo":false
+        "displaySecondaryLogo":true
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText":false,
-        "showLiberateYourCommunicationText":false
+        "showLiberateYourCommunicationText":false,
+        "logo": {
+            "height": "120px"
+        }    
     },
     "settingDefaults": {
         "breadcrumbs": true,
