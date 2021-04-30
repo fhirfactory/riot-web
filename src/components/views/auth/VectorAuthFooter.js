@@ -51,9 +51,11 @@ const VectorAuthFooter = () => {
           height: footerConfig.logo?.height || '55px',
           padding: footerConfig.logo?.padding
     }
-
+    const footerStyle = {
+        'text-align': footerConfig.logo?.align || 'center'
+    }
     return (
-        <div className="mx_AuthFooter">
+        <div className="mx_AuthFooter" style={footerStyle}>
             {authFooterLinks}
             {showDefaultFooterLinks ?
             <a href="https://matrix.org" target="_blank" rel="noreferrer noopener">{ _t('Powered by Matrix') }</a>
