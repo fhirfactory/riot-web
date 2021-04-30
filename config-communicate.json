@@ -82,7 +82,13 @@
         "allowPhoneBasedAuthentication": false,
         "allowEmailBasedAuthentication": false,
         "changeSigninToLoginTextLabel": true,
-        "backgroundColor": "(0,38, 119)"
+        "backgroundColor": "(0,38, 119)",
+        "logo":{
+                "img":{
+                "width": "150px",
+                "height": "100px"
+            }
+        }
     },
     "tabbedView":{
         "displaySecondaryLogo":true
