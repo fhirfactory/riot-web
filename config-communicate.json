@@ -10,8 +10,6 @@
     },
     "disable_custom_urls": true,
     "disable_guests": false,
-    "disable_login_language_selector": false,
-    "disable_3pid_login": false,
     "brand": "Lingo",
     "branding": {
         "authFooterLinks": [
@@ -37,6 +35,7 @@
         "feature_new_spinner": false
     },
     "default_federate": true,
+    "displayTopBanner":true,
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
@@ -77,6 +76,8 @@
     },
     "loginScreen": {
         "displaySecondaryLogo":false,
+        "displayLanguageSelector":false,    
+        "disable_3pid_login": false,            
         "showHomeServerInfo": false,
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
