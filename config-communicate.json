@@ -76,6 +76,7 @@
     },
     "loginScreen": {
         "displaySecondaryLogo":false,
+        "displaySecondaryVerticalLogo":false,        
         "displayLanguageSelector":false,    
         "disable_3pid_login": false,            
         "showHomeServerInfo": false,

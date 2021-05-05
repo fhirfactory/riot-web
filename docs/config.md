@@ -94,6 +94,7 @@ For a good example, see https://develop.element.io/config.json.
     from that homeserver. If no options are configured, presence is shown for all
     homeservers.
    `displayTopBanner`: If true dislays the top banner.
+   `displaySecondaryVerticalLogo`:If true then displays the vertical logo in login screen.
 1. `disable_guests`: Disables guest access tokens and auto-guest registrations.
     Defaults to false (guests are allowed).
 1. `displayLanguageSelector`: Display the login language selector. Defaults
