@@ -93,7 +93,9 @@
         }
     },
     "tabbedView":{
-        "displaySecondaryLogo":true
+        "displaySecondaryLogo":true,
+        "url": "themes/element/img/logos/ACTGov_inline_rev.png",
+        "description": "ACT Govt Logo"
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText":false,
