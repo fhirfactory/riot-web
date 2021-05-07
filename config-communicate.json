@@ -74,11 +74,12 @@
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
     },
+    "disable_3pid_login": false,  
     "loginScreen": {
         "displaySecondaryLogo":false,
         "displaySecondaryVerticalLogo":false,        
         "displayLanguageSelector":false,    
-        "disable_3pid_login": false,            
+          
         "showHomeServerInfo": false,
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
