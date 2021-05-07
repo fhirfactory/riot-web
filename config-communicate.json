@@ -95,8 +95,8 @@
     },
     "tabbedView":{
         "displaySecondaryLogo":true,
-        "url": "themes/element/img/logos/ACTGov_inline_rev.png",
-        "description": "ACT Govt Logo"
+        "secondaryLogoUrl": "themes/element/img/logos/ACTGov_inline_rev.png",
+        "secondaryLogoAltText": "ACT Govt Logo"       
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText":false,
