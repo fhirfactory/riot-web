@@ -58,6 +58,58 @@
             "padding": "0 20px"
         }
     },
+    "show_first_last_char_initials_on_avatar": true,
+    "sort_directory_view_alphabetically": true,
+    "directory": {
+        "api": {
+            "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
+            "search_all_roles": "PractitionerRole",
+            "search_role_by_displayName": "practitionerRole/search?displayName=",
+            "search_person_by_role": "Practitioner/donald.duck%40acme%2Eorg/PractitionerRoles",
+            "matrix_rooms": "MatrixRoom",
+            "practitioner_role-group": "Group",
+            "favourites": {
+              "prefix": "Practitioner/",
+              "role_suffix": "/PractitionerRoleFavourites"
+            }
+        },
+        "showExplorePublicRoomTile": false,
+        "show_favorite_icon_in_directory_search": true,
+        "explorePublicRoomServerSelectionDropdown": false,
+        "numberOfRecordsToShowInSearch": 20,
+        "role": {
+            "name": "Search Roles",
+            "showRoleDirectory": true,
+            "placeholder": "Enter a role keyword(example: shortName) to search",
+            "feature_description": "Using a role directory you can search practitioner by short name as keyword. A short name can be also part of identification id for a role search.",
+            "showAdvancedRoleSearchDropdown": true
+        },
+        "people": {
+            "name": "Search People",
+            "showPeopleDirectory": false,
+            "placeholder": "Enter a person's name...",
+            "feature_description": "Using a people directory you can search a practitioner by a a person's name."
+        },
+        "service": {
+            "name": "Search Service",
+            "showServiceDirectory": false,
+            "placeholder": "Enter a service name...",
+            "feature_description": "Using a role directory you can search practitioner by a service name..."
+        }
+    },
+    "avatarColors": [
+        {
+            "Allied Health": "#AA4298",
+            "Executive": "#002677",
+            "General": "#C64C0B",
+            "Health Professional": "#7A5DCB",
+            "Medical Officer": "#00828C",
+            "Nursing and Midwifery": "#472D8C",
+            "Scientist": "#8B8013",
+            "Student": "#333740",
+            "Volunteer": "#777567"
+        }
+    ],
     "roomDirectory": {
         "servers": [
             "matrix.org"
@@ -113,6 +165,7 @@
             ".m.rule.suppress_notices",
             ".m.rule.tombstone"
         ],
+        "UIFeature.identityServer": false,
         "MessageComposerInput.ctrlEnterToSend": true,
         "TextualBody.disableBigEmoji": true,
         "hideAvatarChanges": true,
@@ -155,13 +208,13 @@
         "UIFeature.registration": false,
         "custom_themes": [
             {
-                "name": "Pegacorn communicate - Light theme custom colors",
+                "name": "Lingo(light)",
                 "is_dark": false,
                 "fonts": {
                     "faces": [
                         {
                             "font-family": "Inter",
-                        	"src": [{"url": "/fonts/Inter-Regular.woff", "format": "ttf"}]
+                        	"src": [{"url": "/fonts/OpenSans-Regular", "format": "ttf"}]
                         }
                     ],
                     "general": "Inter, sans",
