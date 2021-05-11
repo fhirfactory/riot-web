@@ -97,19 +97,17 @@
             "feature_description": "Using a role directory you can search practitioner by a service name..."
         }
     },
-    "avatarColors": [
-        {
-            "Allied Health": "#AA4298",
-            "Executive": "#002677",
-            "General": "#C64C0B",
-            "Health Professional": "#7A5DCB",
-            "Medical Officer": "#00828C",
-            "Nursing and Midwifery": "#472D8C",
-            "Scientist": "#8B8013",
-            "Student": "#333740",
-            "Volunteer": "#777567"
-        }
-    ],
+    "avatarColors": {
+        "Allied Health": "#AA4298",
+        "Executive": "#002677",
+        "General": "#C64C0B",
+        "Health Professional": "#7A5DCB",
+        "Medical Officer": "#00828C",
+        "Nursing and Midwifery": "#472D8C",
+        "Scientist": "#8B8013",
+        "Student": "#333740",
+        "Volunteer": "#777567"
+    },
     "roomDirectory": {
         "servers": [
             "matrix.org"
