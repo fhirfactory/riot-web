@@ -63,13 +63,13 @@
     "directory": {
         "api": {
             "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
-            "search_all_roles": "PractitionerRole",
+            "prefix": "Practitioner/",
+            "search_all_roles": "PractitionerRole/",
             "search_role_by_displayName": "practitionerRole/search?displayName=",
             "search_person_by_role": "Practitioner/donald.duck%40acme%2Eorg/PractitionerRoles",
             "matrix_rooms": "MatrixRoom",
             "practitioner_role-group": "Group",
             "favourites": {
-              "prefix": "Practitioner/",
               "role_suffix": "/PractitionerRoleFavourites"
             }
         },
