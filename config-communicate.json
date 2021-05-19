@@ -81,20 +81,20 @@
             "name": "Search Roles",
             "showRoleDirectory": true,
             "placeholder": "Enter a role keyword(example: shortName) to search",
-            "feature_description": "Using a role directory you can search practitioner by short name as keyword. A short name can be also part of identification id for a role search.",
+            "feature_description": "Using a role directory you can search a role and start discussion. Search keyword must be a display name which is also part of role identification.",
             "showAdvancedRoleSearchDropdown": true
         },
         "people": {
             "name": "Search People",
             "showPeopleDirectory": false,
             "placeholder": "Enter a person's name...",
-            "feature_description": "Using a people directory you can search a practitioner by a a person's name."
+            "feature_description": "Using a people directory you can search a practitioner and start discussion. Search keyword must be a display name, which is also part of your identification."
         },
         "service": {
             "name": "Search Service",
             "showServiceDirectory": false,
             "placeholder": "Enter a service name...",
-            "feature_description": "Using a role directory you can search practitioner by a service name..."
+            "feature_description": "Using a service directory you can search a service and start discussion. Search keyword must be an organization display name."
         }
     },
     "avatarColors": {
