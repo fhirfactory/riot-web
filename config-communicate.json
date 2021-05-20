@@ -10,7 +10,7 @@
     },
     "disable_custom_urls": true,
     "disable_guests": false,
-    "disable_login_language_selector": false,
+    "disable_login_language_selector": true,
     "disable_3pid_login": false,
     "brand": "Lingo",
     "checkForUpdates":false,    
@@ -38,25 +38,14 @@
         "feature_new_spinner": false
     },
     "default_federate": true,
+    "showTopBanner": true,
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
-    "logo_secondary": {
-        "height": "55px",
-        "margin": "0 10px",
-        "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
-        "description": "ACT Govt Logo"
-    },
     "footer": {
-        "brand": {
-            "description": "ACT Health"
-        },
         "logo": {
-            "description": "ACT Govt Logo",
-            "url": "themes/element/img/logos/ACTGov_inline_rev.png",
-            "height": "55px",
-            "margin": "0 10px",
-            "padding": "0 20px"
+            "altText": "Org Logo",
+            "url": "themes/element/img/logos/element-logo-secondary-inline-rev.png"
         }
     },
     "roomDirectory": {
@@ -79,8 +68,16 @@
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
         "allowEmailBasedAuthentication": false,
-        "changeSigninToLoginTextLabel": true,
-        "backgroundColor": "(0,38, 119)"
+        "changeSigninToLoginTextLabel": true
+    },
+    "tabbedView":{
+        "showSecondaryLogo": true,
+        "secondaryLogoUrl": "themes/element/img/logos/element-logo-secondary.png",
+        "secondaryLogoAltText": "Org Logo"       
+    },
+    "authenticatedHomeScreen":{
+        "showWelcomeToElementText": false,
+        "showLiberateYourCommunicationText": false
     },
     "settingDefaults": {
         "breadcrumbs": true,

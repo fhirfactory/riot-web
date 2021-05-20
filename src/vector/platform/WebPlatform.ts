@@ -169,7 +169,6 @@ export default class WebPlatform extends VectorBasePlatform {
     };
 
     startUpdateCheck() {
-        //disable version update based on configuration values
         const checkForUpdates = SdkConfig.get().checkForUpdates ?? true;
         if(checkForUpdates){
             super.startUpdateCheck();
