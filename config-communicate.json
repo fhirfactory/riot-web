@@ -10,6 +10,8 @@
     },
     "disable_custom_urls": true,
     "disable_guests": false,
+    "disable_login_language_selector": true,
+    "disable_3pid_login": false,
     "brand": "Lingo",
     "branding": {
         "authFooterLinks": [
@@ -35,28 +37,14 @@
         "feature_new_spinner": false
     },
     "default_federate": true,
-    "displayTopBanner":true,
+    "showTopBanner": true,
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
-    "logo_secondary": {
-        "display":true,
-        "height": "55px",
-        "margin": "0 10px",
-        "imgUrl": "themes/element/img/logos/element-logo-secondary.png",
-        "description": "ACT Govt Logo"
-    },
     "footer": {
-        "brand": {
-            "description": "ACT Health"
-        },
         "logo": {
-            "description": "ACT Govt Logo",
-            "url": "themes/element/img/logos/ACTGov_inline_rev.png",
-            "height": "55px",
-            "margin": "0 10px",
-            "padding": "0 20px",
-            "align": "right"
+            "altText": "Org Logo",
+            "url": "themes/element/img/logos/element-logo-secondary-inline-rev.png"
         }
     },
     "roomDirectory": {
@@ -74,36 +62,20 @@
         "https://matrix.org": false,
         "https://matrix-client.matrix.org": false
     },
-    "disable_3pid_login": false,  
     "loginScreen": {
-        "displaySecondaryLogo":false,
-        "displaySecondaryVerticalLogo":false,        
-        "displayLanguageSelector":false,    
-          
-        "showHomeServerInfo": false,
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
         "allowEmailBasedAuthentication": false,
-        "changeSigninToLoginTextLabel": true,
-        "backgroundColor": "(0,38, 119)",
-        "logo":{
-                "img":{
-                "width": "150px",
-                "height": "100px"
-            }
-        }
+        "changeSigninToLoginTextLabel": true
     },
     "tabbedView":{
-        "displaySecondaryLogo":true,
-        "secondaryLogoUrl": "themes/element/img/logos/ACTGov_inline_rev.png",
-        "secondaryLogoAltText": "ACT Govt Logo"       
+        "showSecondaryLogo": true,
+        "secondaryLogoUrl": "themes/element/img/logos/element-logo-secondary.png",
+        "secondaryLogoAltText": "Org Logo"       
     },
     "authenticatedHomeScreen":{
-        "showWelcomeToElementText":false,
-        "showLiberateYourCommunicationText":false,
-        "logo": {
-            "height": "120px"
-        }    
+        "showWelcomeToElementText": false,
+        "showLiberateYourCommunicationText": false
     },
     "settingDefaults": {
         "breadcrumbs": true,
