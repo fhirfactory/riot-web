@@ -63,6 +63,7 @@
         "https://matrix-client.matrix.org": false
     },
     "loginScreen": {
+        "showHomeServerInfo": false,
         "showMatrixDefaultFooterLinks": false,
         "allowPhoneBasedAuthentication": false,
         "allowEmailBasedAuthentication": false,
