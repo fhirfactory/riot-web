@@ -111,7 +111,7 @@
             ".m.rule.suppress_notices",
             ".m.rule.tombstone"
         ],
-        "MessageComposerInput.ctrlEnterToSend": true,
+        "MessageComposerInput.ctrlEnterToSend": false,
         "TextualBody.disableBigEmoji": true,
         "hideAvatarChanges": true,
         "hideDisplaynameChanges": true,
