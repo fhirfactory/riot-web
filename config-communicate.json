@@ -57,7 +57,6 @@
             "prefix": "Practitioner/",
             "search_all_roles": "PractitionerRole/",
             "search_role_by_displayName": "practitionerRole/search?displayName=",
-            "search_person_by_role": "Practitioner/donald.duck%40acme%2Eorg/PractitionerRoles",
             "matrix_rooms": "MatrixRoom",
             "practitioner_role-group": "Group",
             "favourites": {
