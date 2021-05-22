@@ -13,7 +13,7 @@
     "disable_login_language_selector": true,
     "disable_3pid_login": false,
     "brand": "Lingo",
-    "checkForUpdates":false,    
+    "checkForUpdates":false,
     "branding": {
         "authFooterLinks": [
             {
@@ -50,6 +50,7 @@
     },
     "show_first_last_char_initials_on_avatar": true,
     "sort_directory_view_alphabetically": true,
+    "use_custom_text_label_on_left_menu": "Use the + to make a new room or search roles, people or services in directory",
     "directory": {
         "api": {
             "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
@@ -63,9 +64,7 @@
               "role_suffix": "/PractitionerRoleFavourites"
             }
         },
-        "showExplorePublicRoomTile": false,
         "show_favorite_icon_in_directory_search": true,
-        "explorePublicRoomServerSelectionDropdown": false,
         "numberOfRecordsToShowInSearch": 20,
         "role": {
             "name": "Search Roles",
@@ -99,6 +98,8 @@
         "Volunteer": "#777567"
     },
     "roomDirectory": {
+        "showExplorePublicRoomTile": false,
+        "explorePublicRoomServerSelectionDropdown": false,
         "servers": [
             "matrix.org"
         ]
@@ -123,7 +124,7 @@
     "tabbedView":{
         "showSecondaryLogo": true,
         "secondaryLogoUrl": "themes/element/img/logos/element-logo-secondary.png",
-        "secondaryLogoAltText": "Org Logo"       
+        "secondaryLogoAltText": "Org Logo"
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText": false,
