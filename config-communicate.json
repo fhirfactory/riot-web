@@ -57,10 +57,15 @@
             "prefix": "Practitioner/",
             "search_all_roles": "PractitionerRole/",
             "search_role_by_displayName": "practitionerRole/search?displayName=",
+            "organization_search_prefix": "Organization/",
+            "search_service_by_displayName": "Organization/search?displayName=",
+            "search_people_by_displayName": "Practitioner/search?displayName=",
             "matrix_rooms": "MatrixRoom",
             "practitioner_role-group": "Group",
             "favourites": {
-              "role_suffix": "/PractitionerRoleFavourites"
+              "role_suffix": "/PractitionerRoleFavourites",
+              "service_suffix": "/ServiceFavourites",
+              "people_suffix": "/PractitionerFavourites"
             }
         },
         "show_favorite_icon_in_directory_search": true,
@@ -97,7 +102,7 @@
         "Volunteer": "#777567"
     },
     "roomDirectory": {
-        "showExplorePublicRoomTile": false,
+        "showExplorePublicRooms": false,
         "explorePublicRoomServerSelectionDropdown": false,
         "servers": [
             "matrix.org"
