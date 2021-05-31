@@ -13,7 +13,7 @@
     "disable_login_language_selector": true,
     "disable_3pid_login": false,
     "brand": "Lingo",
-    "checkForUpdates":false,    
+    "checkForUpdates":false,
     "branding": {
         "authFooterLinks": [
             {
@@ -48,8 +48,63 @@
             "url": "themes/element/img/logos/element-logo-secondary-inline-rev.png"
         }
     },
+    "show_first_last_char_initials_on_avatar": true,
+    "sort_directory_view_alphabetically": true,
+    "left_hand_nav_help_text": "Use the + to contact or search for roles, people or services",
+    "directory": {
+        "api": {
+            "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
+            "prefix": "Practitioner/",
+            "search_all_roles": "PractitionerRole/",
+            "search_role_by_displayName": "practitionerRole/search?displayName=",
+            "organization_search_prefix": "Organization/",
+            "search_service_by_displayName": "Organization/search?displayName=",
+            "search_people_by_displayName": "Practitioner/search?displayName=",
+            "matrix_rooms": "MatrixRoom",
+            "practitioner_role-group": "Group",
+            "favourites": {
+              "role_suffix": "/PractitionerRoleFavourites",
+              "service_suffix": "/ServiceFavourites",
+              "people_suffix": "/PractitionerFavourites"
+            }
+        },
+        "show_favorite_icon_in_directory_search": true,
+        "numberOfRecordsToShowInSearch": 20,
+        "role": {
+            "name": "Search Roles",
+            "showRoleDirectory": true,
+            "placeholder": "Enter a role keyword(example: shortName) to search",
+            "feature_description": "Using a role directory you can search a role and start discussion. Search keyword must be a display name which is also part of role identification. You can also select multiple roles and start discussion separately with each role. Group chat is not supported at the moment with roles.",
+            "showAdvancedRoleSearchDropdown": true
+        },
+        "people": {
+            "name": "Search People",
+            "showPeopleDirectory": false,
+            "placeholder": "Enter a person's name...",
+            "feature_description": "Using a people directory you can search a practitioner and start discussion. Search keyword must be a display name, which is also part of your identification."
+        },
+        "service": {
+            "name": "Search Services",
+            "showServiceDirectory": false,
+            "placeholder": "Enter a service name...",
+            "feature_description": "Using a service directory you can search a service and start discussion. Search keyword must be an organization display name."
+        }
+    },
+    "avatarColors": {
+        "Allied Health": "#AA4298",
+        "Executive": "#002677",
+        "General": "#C64C0B",
+        "Health Professional": "#7A5DCB",
+        "Medical Officer": "#00828C",
+        "Nursing and Midwifery": "#472D8C",
+        "Scientist": "#8B8013",
+        "Student": "#333740",
+        "Volunteer": "#777567"
+    },
     "roomDirectory": {
-        "servers": [
+        "showExplorePublicRooms": false,
+        "showExplorePublicRoomServerSelectionDropdown": false,
+        "DISABLED_servers": [
             "matrix.org"
         ]
     },
@@ -73,7 +128,7 @@
     "tabbedView":{
         "showSecondaryLogo": true,
         "secondaryLogoUrl": "themes/element/img/logos/element-logo-secondary.png",
-        "secondaryLogoAltText": "Org Logo"       
+        "secondaryLogoAltText": "Org Logo"
     },
     "authenticatedHomeScreen":{
         "showWelcomeToElementText": false,
@@ -112,6 +167,7 @@
             ".m.rule.tombstone"
         ],
         "MessageComposerInput.ctrlEnterToSend": false,
+        "UIFeature.identityServer": false,
         "TextualBody.disableBigEmoji": true,
         "hideAvatarChanges": true,
         "hideDisplaynameChanges": true,
@@ -153,13 +209,13 @@
         "UIFeature.registration": false,
         "custom_themes": [
             {
-                "name": "Pegacorn communicate - Light theme custom colors",
+                "name": "Communicate (light)",
                 "is_dark": false,
                 "fonts": {
                     "faces": [
                         {
                             "font-family": "Inter",
-                        	"src": [{"url": "/fonts/Inter-Regular.woff", "format": "ttf"}]
+                        	"src": [{"url": "/fonts/OpenSans-Regular", "format": "ttf"}]
                         }
                     ],
                     "general": "Inter, sans",
