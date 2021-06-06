@@ -50,6 +50,7 @@
     },
     "show_first_last_char_initials_on_avatar": true,
     "sort_directory_view_alphabetically": true,
+    "filter_by_displayName_in_directory": false,
     "left_hand_nav_help_text": "Use the + to contact or search for roles, people or services",
     "directory": {
         "api": {
