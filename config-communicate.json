@@ -64,6 +64,7 @@
             "matrix.org"
         ]
     },
+    "showRoomCount": false,
     "DISABLED_piwik": {
         "url": "https://piwik.riot.im/",
         "whitelistedHSUrls": ["https://matrix.org"],
