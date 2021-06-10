@@ -72,6 +72,7 @@
         "show_favorite_icon_in_directory_search": true,
         "showUserPresenceIndicator": true,
         "showDirectoryContactViewOnDirectorySearch": true,
+        "show_matrix_based_paginator": false,
         "numberOfRecordsToShowInSearch": 20,
         "role": {
             "name": "Search Roles",
