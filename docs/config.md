@@ -93,6 +93,7 @@ For a good example, see https://develop.element.io/config.json.
     and its value defines whether to enable/disable the presence status display
     from that homeserver. If no options are configured, presence is shown for all
     homeservers.
+   `displayTopBanner`: If true dislays the top banner.
 1. `disable_guests`: Disables guest access tokens and auto-guest registrations.
     Defaults to false (guests are allowed).
 1. `disable_login_language_selector`: Disables the login language selector. Defaults

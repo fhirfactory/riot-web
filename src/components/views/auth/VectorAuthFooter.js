@@ -18,14 +18,20 @@ limitations under the License.
 import React from 'react';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import { _t } from 'matrix-react-sdk/src/languageHandler';
+import { showDefaultFooterLinks } from 'matrix-react-sdk/src/config';
 
 const VectorAuthFooter = () => {
-    const brandingConfig = SdkConfig.get().branding;
+    const config = SdkConfig.get();
+    const footerConfig = config.footer;
+    const brandingConfig = config.branding;
     let links = [
         {"text": "Blog", "url": "https://element.io/blog"},
         {"text": "Twitter", "url": "https://twitter.com/element_hq"},
         {"text": "GitHub", "url": "https://github.com/vector-im/element-web"},
     ];
+    if(!showDefaultFooterLinks){
+        links = [];
+    }
 
     if (brandingConfig && brandingConfig.authFooterLinks) {
         links = brandingConfig.authFooterLinks;
@@ -43,7 +49,12 @@ const VectorAuthFooter = () => {
     return (
         <div className="mx_AuthFooter">
             {authFooterLinks}
+            {showDefaultFooterLinks ?
             <a href="https://matrix.org" target="_blank" rel="noreferrer noopener">{ _t('Powered by Matrix') }</a>
+                :<span className="mx_AuthFooter_brand">
+                    <img src={footerConfig.logo?.url} alt={footerConfig.logo?.description} />
+                </span>
+			}
         </div>
     );
 };

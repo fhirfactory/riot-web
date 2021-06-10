@@ -18,8 +18,8 @@ WORKDIR /src
 
 COPY . /src
 
-# Copy certificate
-COPY /PRDPKICA.crt /opt
+# Conditionally copy certificate, as it won't exist outside the proxy (based on https://forums.docker.com/t/copy-only-if-file-exist/3781/3)
+COPY /README.md /PRDPKICA.crt* /opt/
 
 # gyp ERR! stack Error: connect ECONNREFUSED 104.20.23.46:443 - when we run yarn install (proxy blocking operation)
 # https://github.com/nodejs/node-gyp/issues/1133
@@ -33,11 +33,15 @@ RUN mkdir -p /webapp
 COPY /jitsi_external_api.min.js /webapp/jitsi_external_api.min.js
 
 # Configuring certificate while SSL authentication is true
-# Configure yarn to use https proxy - https://stackoverflow.com/questions/51508364/yarn-there-appears-to-be-trouble-with-your-network-connection-retrying
+# Conditionally configure yarn to use https proxy. Based on: 
+# 1. https://stackoverflow.com/questions/51508364/yarn-there-appears-to-be-trouble-with-your-network-connection-retrying
+# 2. https://www.dev-diaries.com/social-posts/conditional-logic-in-dockerfile/
 ARG HTTPS_PROXY
-RUN yarn config set https-proxy ${HTTPS_PROXY} \
+RUN if [ -n "$HTTPS_PROXY" ] ; then \
+    yarn config set https-proxy ${HTTPS_PROXY} \
  && yarn config set strict-ssl true \
- && yarn config set cafile /opt/PRDPKICA.crt
+ && yarn config set cafile /opt/PRDPKICA.crt \
+ ; fi
 
 # Not mandatory when working with pegacorn sdk branches that were pulled locally
 # This explains why the ARG variables are commented out
@@ -60,7 +64,7 @@ RUN yarn link matrix-js-sdk \
  && yarn build
 
 # Copy the config now so that we don't create another layer in the app image
-RUN cp /src/config.json /src/webapp/config.json
+RUN cp /src/config-communicate.json /src/webapp/config.json
 
 # Ensure we populate the version file
 RUN dos2unix /src/scripts/docker-write-version.sh && bash /src/scripts/docker-write-version.sh

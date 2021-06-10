@@ -49,6 +49,7 @@ spec:
             /bin/cp -f /app/config-with-placeholders.json /app/config.json;
             sed -i \"s/<MatrixServerName>/{{ .Values.matrixServerName }}/\" /app/config.json;
             sed -i \"s/<HomeServerHostNameAndPort>/{{ .Values.homeServerHostNameAndPort }}/\" /app/config.json;
+            sed -i \"s+<DirectoryServiceProtocolAndHostNameAndPort>+{{ .Values.directoryServiceProtocolAndHostNameAndPort | default (printf "https://%s" .Values.homeServerHostNameAndPort) }}+\" /app/config.json;
             echo START of /app/config.json file content;
             echo ' ';
             cat /app/config.json;
