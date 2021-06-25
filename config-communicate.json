@@ -22,7 +22,7 @@
             }
         ]
     },
-    "DisplaySenderAsYou":true,
+    "DisplaySenderAsYou":false,
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
     "integrations_widgets_urls": [
