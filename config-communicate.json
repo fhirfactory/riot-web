@@ -55,6 +55,7 @@
     "show_first_last_char_initials_on_avatar": true,
     "sort_directory_view_alphabetically": true,
     "left_hand_nav_help_text": "Use the + to contact or search for roles, people or services",
+    "desktopNotificationIsEnforced": true,
     "directory": {
         "api": {
             "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
