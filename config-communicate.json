@@ -38,6 +38,7 @@
     "DISABLED_bug_report_endpoint_url": "https://element.io/bugreports/submit",
     "defaultCountryCode": "GB",
     "showLabsSettings": false,
+    "enableSignoutPrompt": true,
     "features": {
         "feature_new_spinner": false
     },
