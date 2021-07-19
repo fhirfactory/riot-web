@@ -22,6 +22,9 @@
             }
         ]
     },
+    "avatarSize":32,
+    "avatarBoxSize":40,
+    "resizeHandleHeight":4,
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
     "integrations_widgets_urls": [
