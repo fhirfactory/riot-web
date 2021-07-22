@@ -12,6 +12,8 @@
     "disable_guests": false,
     "disable_login_language_selector": true,
     "disable_3pid_login": false,
+    "disable_viewSourceButton":false,
+    "disable_reportEventButton":false,
     "brand": "Lingo",
     "checkForUpdates":false,
     "branding": {
