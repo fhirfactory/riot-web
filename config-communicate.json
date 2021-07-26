@@ -145,6 +145,8 @@
         "UIFeature.flair": false,
         "UIFeature.advancedEncryption": false,
         "UIFeature.advancedSettings": false,
+        "UIFeature.userProfileDisplaySecurity": true,
+        "UIFeature.showUserId": true,
         "UIFeature.communities": false,
         "UIFeature.feedback": false,
         "integrationProvisioning": false,
