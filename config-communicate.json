@@ -145,6 +145,8 @@
         "UIFeature.flair": false,
         "UIFeature.advancedEncryption": false,
         "UIFeature.advancedSettings": false,
+        "UIFeature.notificationSettings": false,
+        "UIFeature.roleSettings": false,        
         "UIFeature.communities": false,
         "UIFeature.feedback": false,
         "integrationProvisioning": false,
@@ -211,6 +213,13 @@
         "UIFeature.lookForWellKnownConfigFromHomeServer": true,
         "UIFeature.passwordReset": false,
         "UIFeature.registration": false,
+        "UIFeature.RoomSettings": {
+            "changeRoomAddressesToRoomAccess":false,
+            "RoomSettingCustomPublicSettings":false,
+            " ":false,
+            "showRolesTab":false,
+            "showNotificationsTab":false
+        },
         "custom_themes": [
             {
                 "name": "Communicate (light)",
