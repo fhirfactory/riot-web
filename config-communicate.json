@@ -42,6 +42,9 @@
     "default_theme": "light",
     "feature_custom_themes": true,
     "auto_redirect_from_welcome_screen_to_login": true,
+    "presence_dashboard": {
+        "homepageUrl": "https://lingo-server.site-a/role-dashboard/"
+        },
     "footer": {
         "logo": {
             "altText": "Org Logo",
@@ -69,6 +72,8 @@
               "people_suffix": "/PractitionerFavourites"
             }
         },
+        "showDiscussionInDirectory": true,
+        "showGroupDiscussionInDirectory": true,
         "show_favorite_icon_in_directory_search": true,
         "showUserPresenceIndicator": true,
         "showDirectoryContactViewOnDirectorySearch": true,
