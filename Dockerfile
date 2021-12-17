@@ -54,13 +54,13 @@ RUN yarn link \
 WORKDIR /src/pegacorn-communicate-matrix-react-sdk
 RUN yarn link \
  && yarn link matrix-js-sdk \
- && yarn --network-timeout 100000 install \
+ && yarn --network-timeout 100001 install \
  && yarn reskindex
  
 WORKDIR /src
 RUN yarn link matrix-js-sdk \
  && yarn link matrix-react-sdk \
- && yarn --network-timeout 100000 install \
+ && yarn --network-timeout 100002 install \
  && yarn build
 
 # Copy the config now so that we don't create another layer in the app image

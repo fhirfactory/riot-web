@@ -14,13 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import * as sdk from 'matrix-react-sdk/src/index';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import * as config from 'matrix-react-sdk/src/config';
 
 export default class VectorAuthPage extends React.PureComponent {
-    static replaces = 'AuthPage'
+    static replaces = 'AuthPage';
 
     static welcomeBackgroundUrl;
 
@@ -49,12 +49,12 @@ export default class VectorAuthPage extends React.PureComponent {
             background: `center/cover fixed url(${VectorAuthPage.getWelcomeBackgroundUrl()})`,
         };
 
-        const modalStyle = {
+        const modalStyle: CSSProperties = {
             position: 'relative',
             background: 'initial',
         };
 
-        const blurStyle = {
+        const blurStyle: CSSProperties = {
             position: 'absolute',
             top: 0,
             right: 0,
@@ -64,7 +64,7 @@ export default class VectorAuthPage extends React.PureComponent {
             background: pageStyle.background,
         };
 
-        const modalContentStyle = {
+        const modalContentStyle: CSSProperties = {
             display: 'flex',
             zIndex: 1,
             background: 'rgba(255, 255, 255, 0.59)',
