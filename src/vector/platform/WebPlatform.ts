@@ -16,7 +16,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import VectorBasePlatform from './VectorBasePlatform';
 import { UpdateCheckStatus } from "matrix-react-sdk/src/BasePlatform";
 import request from 'browser-request';
 import dis from 'matrix-react-sdk/src/dispatcher/dispatcher';
@@ -28,8 +27,9 @@ import { CheckUpdatesPayload } from 'matrix-react-sdk/src/dispatcher/payloads/Ch
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 
 import UAParser from 'ua-parser-js';
-
 import { logger } from "matrix-js-sdk/src/logger";
+
+import VectorBasePlatform from './VectorBasePlatform';
 
 const POKE_RATE_MS = 10 * 60 * 1000; // 10 min
 
