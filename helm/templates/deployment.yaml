@@ -55,12 +55,10 @@ spec:
             cat /app/config.json;
             echo ' ';
             echo END of /app/config.json file content;
-        {{- if (.Values.externalDnsEntry) }} 
             echo Updating /app/default.conf file;
             [ -e /app/default-with-placeholders.conf ] || cp /app/default.conf /app/default-with-placeholders.conf;
             /bin/cp -f /app/default-with-placeholders.conf /app/default.conf;        
-            sed -i \"s/pegacorn-communicate-web.site-a/{{ .Values.externalDnsEntry }}/\" /app/default.conf;
-        {{- end }}
+            sed -i \"s/<serviceName>/{{ .Values.externalDnsEntry | default (print .Values.serviceName ".site-a" ) }}/\" /app/default.conf;
             echo START of /app/default.conf file content;
             echo ' ';
             cat /app/default.conf;
