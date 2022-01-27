@@ -211,59 +211,7 @@
         "UIFeature.showLiberateYourCommunicationText": false,
         "UIFeature.lookForWellKnownConfigFromHomeServer": true,
         "UIFeature.passwordReset": false,
-        "UIFeature.registration": false,
-        "custom_themes": [
-            {
-                "name": "Communicate (light)",
-                "is_dark": false,
-                "fonts": {
-                    "faces": [
-                        {
-                            "font-family": "Inter",
-                        	"src": [{"url": "/fonts/OpenSans-Regular", "format": "ttf"}]
-                        }
-                    ],
-                    "general": "Inter, sans",
-                    "monospace": "'Courier New'"
-                },
-                "colors": {
-                    "$primary-color": "rgb(0, 38, 119)",
-                    "$accent-color": "rgb(0, 130, 140)",
-                    "$warning-color": "rgb(255, 75, 85)",
-                    "sidebar-color": "rgb(39, 48, 58)",
-                    "roomlist-background-color": "rgb(243, 248, 253)",
-                    "roomlist-text-color": "rgb(46, 47, 50)",
-                    "roomlist-text-secondary-color": "rgb(97, 112, 139)",
-                    "roomlist-highlights-color": "rgb(255, 255, 255)",
-                    "roomlist-separator-color": "rgb(227, 232, 240)",
-                    "timeline-background-color": "rgb(255, 255, 255)",
-                    "timeline-text-color": "rgb(46, 47, 50)",
-                    "timeline-text-secondary-color": "rgb(97, 112, 139)",
-                    "timeline-highlights-color": "rgb(243, 248, 253)",
-                    "avatar-bg-color": [
-                        "rgb(0, 38, 119)",
-                        "rgb(0, 121, 164)",
-                        "rgb(72, 45, 140)"
-                    ],
-                    "username-colors": [
-                        "rgb(0, 38, 119)",
-                        "rgb(0, 121, 164)",
-                        "rgb(72, 45, 140)",
-                        "rgb(0, 130, 140)",
-                        "rgb(153, 151, 137)",
-                        "rgb(139, 128, 19)",
-                        "rgb(52, 55, 66)",
-                        "rgb(119, 117, 103)",
-                        "rgb(122, 93, 203)"
-                    ],
-                    "avatar-background-colors": [
-                        "rgb(0, 38, 119)",
-                        "rgb(0, 121, 164)",
-                        "rgb(72, 45, 140)"
-                    ]
-                }
-            }
-        ]
+        "UIFeature.registration": false
     },
     "DISABLED_jitsi": {
         "preferredDomain": "jitsi.riot.im"
