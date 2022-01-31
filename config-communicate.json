@@ -1,8 +1,8 @@
 {
     "default_server_config": {
         "m.homeserver": {
-            "base_url": "https://pegacorn-communicate-roomserver.site-a:30880",
-            "server_name": "chs.local.gov.au"
+            "base_url": "https://itops-pegacorn-communicate-roomserver.site-a:30881",
+            "server_name": "itops-pegacorn-communicate-roomserver"
         },
         "NOT_REQUIRED_m.identity_server": {
             "base_url": "https://vector.im"
