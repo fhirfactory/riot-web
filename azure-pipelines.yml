@@ -9,16 +9,19 @@ resources:
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-js-sdk
+    ref: matrix-org-master
   - repository: matrix-react-sdk
     type: github
     endpoint: fhirfactory
     name: fhirfactory/pegacorn-communicate-matrix-react-sdk
-  - repository: aether-host-files
-    type: git
-    name: Pegacorn/aether-host-files
+    ref: matrix-org-master
+#  - repository: aether-host-files
+#    type: git
+#    name: Pegacorn/aether-host-files
     
 trigger:
 - master
+- feature/element-upgrade
 
 pr:
 - nomatch
@@ -27,7 +30,7 @@ variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
 #  dockerImageName: '$(Build.Repository.Name)'
   dockerImageName: 'pegacorn-communicate-web'
-  projectVersion: '1.0.0-snapshot'
+  projectVersion: '1.0.1-custom-snapshot'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -36,14 +39,14 @@ steps:
 - checkout: self
 - checkout: matrix-js-sdk
 - checkout: matrix-react-sdk
-- checkout: aether-host-files
+#- checkout: aether-host-files
 - bash: |
     buildTimestamp=$(TZ='Australia/Sydney' date --rfc-3339='seconds')
     cd $(System.DefaultWorkingDirectory)/pegacorn-communicate-app-web
     cp -r ../pegacorn-communicate-matrix-js-sdk .
     cp -r ../pegacorn-communicate-matrix-react-sdk .
-    cp -rf ../aether-host-files/common/element-web/matrix-react-sdk/* pegacorn-communicate-matrix-react-sdk/
-    cp -rf ../aether-host-files/common/element-web/lingo-app-web/* .
+#    cp -rf ../aether-host-files/common/element-web/matrix-react-sdk/* pegacorn-communicate-matrix-react-sdk/
+#    cp -rf ../aether-host-files/common/element-web/lingo-app-web/* .
 - task: Docker@2
   displayName: 'Build a docker image'
   inputs:
