@@ -21,7 +21,7 @@ spec:
   - name: element
     port: {{ add 0 .Values.basePort }}
     protocol: TCP
-    targetPort: 80
+    targetPort: 443
     nodePort: {{ if (.Values.serviceType) and (eq .Values.serviceType "NodePort")}} {{ add 0 .Values.basePort }} {{ end }}
   selector:
     app: {{ .Values.serviceName }}

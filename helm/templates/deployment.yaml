@@ -132,19 +132,19 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 80
-            scheme: HTTP
+            port: 443
+            scheme: HTTPS
           initialDelaySeconds: 30
         name: element
         ports:
-        - containerPort: 80
-          name: http
+        - containerPort: 443
+          name: https
           protocol: TCP
         readinessProbe:
           httpGet:
             path: /
-            port: 80
-            scheme: HTTP
+            port: 443
+            scheme: HTTPS
           initialDelaySeconds: 10
         securityContext:
           privileged: false
