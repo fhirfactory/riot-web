@@ -50,6 +50,9 @@ spec:
             sed -i \"s/<MatrixServerName>/{{ .Values.matrixServerName }}/\" /app/config.json;
             sed -i \"s/<HomeServerHostNameAndPort>/{{ .Values.homeServerHostNameAndPort }}/\" /app/config.json;
             sed -i \"s+<DirectoryServiceProtocolAndHostNameAndPort>+{{ .Values.directoryServiceProtocolAndHostNameAndPort | default (printf "https://%s" .Values.homeServerHostNameAndPort) }}+\" /app/config.json;
+        {{- if (eq (.Values.disablePresence | default "No") "Yes") }} 
+            sed -i '/\"enable_presence_by_hs_url\"/ a \"https://{{ .Values.homeServerHostNameAndPort }}\": false,' /app/config.json;
+        {{- end }}        
             echo START of /app/config.json file content;
             echo ' ';
             cat /app/config.json;
