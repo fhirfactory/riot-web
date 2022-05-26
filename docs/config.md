@@ -22,9 +22,22 @@ For a good example, see https://develop.element.io/config.json.
      `default_hs_url` is specified. When multiple sources are specified, it is unclear
      which should take priority and therefore the application cannot continue.
    * As of Element 1.4.0, identity servers are optional. See [Identity servers](#identity-servers) below.
+1. `sso_redirect_options`: Optionally defines how Element will behave with a server which supports
+   Single Sign On (SSO). By default, Element will do nothing special and simply show a button where
+   needed for the user to click to navigate to the SSO system. This behaviour can be tuned with the
+   config options below (as properties of the `sso_redirect_options` object). None of the options apply
+   if Element thinks the user is already logged in, and similarly Element will assume the default server
+   supports SSO if these redirect options are used.
+   * `immediate`: When `true` (default `false`), Element will automatically redirect all unauthenticated
+     users to the SSO system to log in regardless of how they reached the app. This overrides the use of
+     other redirect options.
+   * `on_welcome_page`: When `true` (default `false`), Element will automatically redirect all unauthenticated
+     users to the SSO to log in if the user lands on the welcome page or no specific page. For example,
+     https://app.element.io/#/welcome and https://app.element.io would redirect if set up to use this option.
+     This can be useful to maintain guest experience until an account is needed.
 1. `features`: Lookup of optional features that may be force-enabled (`true`) or force-disabled (`false`).
    When features are not listed here, their defaults will be used, and users can turn them on/off if `showLabsSettings`
-   allows them to. The available optional experimental features vary from release to release and are 
+   allows them to. The available optional experimental features vary from release to release and are
    [documented](labs.md). The feature flag process is [documented](feature-flags.md) as well.
 1. `showLabsSettings`: Shows the "labs" tab of user settings. Useful to allow users to turn on experimental features
    they might not otherwise have access to.
@@ -72,6 +85,9 @@ For a good example, see https://develop.element.io/config.json.
     1. `homeUrl`: Content shown on the inside of the app when a specific room is
        not selected. By default, no home page is configured. If one is set, a
        button to access it will be shown in the top left menu.
+    1. `loginForWelcome`: Overrides `welcomeUrl` to make the welcome page be the
+       same page as the login page when `true`. This effectively disables the
+       welcome page.
 1. `defaultCountryCode`: The ISO 3166 alpha2 country code to use when showing
    country selectors, like the phone number input on the registration page.
    Defaults to `GB` if the given code is unknown or not provided.
@@ -111,12 +127,36 @@ For a good example, see https://develop.element.io/config.json.
    1. `logo`: An HTTP URL to the avatar for the desktop build. Should be 24x24, ideally
       an SVG.
    1. `url`: An HTTP URL for where to send the user to download the desktop build.
+1. `mobileBuilds`: Used to alter promotional links to the mobile app. By default the
+   builds are considered available and accessible from https://element.io. This config
+   option is typically used in a context of encouraging the user to try the mobile app
+   instead of a mobile/incompatible browser.
+   1. `ios`: The URL to the iOS build. If `null`, it will be assumed to be not available.
+       If not set, the default element.io builds will be used.
+   1. `android`: The URL to the Android build. If `null`, it will be assumed to be not available.
+       If not set, the default element.io builds will be used.
+   1. `fdroid`: The URL to the FDroid build. If `null`, it will be assumed to be not available.
+      If not set, the default element.io builds will be used.
 1. `mobileGuideToast`: Whether to show a toast a startup which nudges users on
    iOS and Android towards the native mobile apps. The toast redirects to the
    mobile guide if they accept. Defaults to false.
 1. `audioStreamUrl`: If supplied, show an option on Jitsi widgets to stream
    audio using Jitsi's live streaming feature. This option is experimental and
    may be removed at any time without notice.
+1. `voip`: Behaviour related to calls
+   1. `obeyAssertedIdentity`: If set, MSC3086 asserted identity messages sent
+      on VoIP calls will cause the call to appear in the room corresponding to the
+      asserted identity. This *must* only be set in trusted environments.
+1. `posthog`: [Posthog](https://posthog.com/) integration config. If not set, Posthog analytics are disabled.
+   1. `projectApiKey`: The Posthog project API key
+   2. `apiHost`: The Posthog API host
+1. `sentry`: [Sentry](https://sentry.io/) configuration for rageshake data being sent to sentry.
+   1. `dsn`: the Sentry [DSN](https://docs.sentry.io/product/sentry-basics/dsn-explainer/)
+   2. `environment`: (optional) The [Environment](https://docs.sentry.io/product/sentry-basics/environments/) to pass to sentry
+1. `map_style_url`: Maptile server URL for location sharing. e.g.
+   'https://api.maptiler.com/maps/basic/style.json?key=YOUR_KEY_GOES_HERE'
+1. `analyticsOwner`: The entity that analytics data is being sent to. Used in copy
+   when explaining to the user where data is being sent. If not set, defaults to `brand`.
 
 Note that `index.html` also has an og:image meta tag that is set to an image
 hosted on riot.im. This is the image used if links to your copy of Element

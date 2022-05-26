@@ -1,4 +1,4 @@
-FROM vectorim/element-web:v1.7.20
+FROM vectorim/element-web:v1.9.7
 
 # Date-time build argument
 ARG IMAGE_BUILD_TIMESTAMP

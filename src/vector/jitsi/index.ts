@@ -14,11 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// We have to trick webpack into loading our CSS for us.
-require("./index.scss");
-
-import * as qs from 'querystring';
-import {KJUR} from 'jsrsasign';
+import { KJUR } from 'jsrsasign';
 import {
     IOpenIDCredentials,
     IWidgetApiRequest,
@@ -26,6 +22,10 @@ import {
     WidgetApi,
 } from "matrix-widget-api";
 import { ElementWidgetActions } from "matrix-react-sdk/src/stores/widgets/ElementWidgetActions";
+import { logger } from "matrix-js-sdk/src/logger";
+
+// We have to trick webpack into loading our CSS for us.
+require("./index.scss");
 
 const JITSI_OPENIDTOKEN_JWT_AUTH = 'openidtoken-jwt';
 
@@ -52,15 +52,16 @@ let meetApi: any; // JitsiMeetExternalAPI
 
 (async function() {
     try {
-        // The widget's options are encoded into the fragment to avoid leaking info to the server. The widget
-        // spec on the other hand requires the widgetId and parentUrl to show up in the regular query string.
-        const widgetQuery = qs.parse(window.location.hash.substring(1));
-        const query = Object.assign({}, qs.parse(window.location.search.substring(1)), widgetQuery);
+        // The widget's options are encoded into the fragment to avoid leaking info to the server.
+        const widgetQuery = new URLSearchParams(window.location.hash.substring(1));
+        // The widget spec on the other hand requires the widgetId and parentUrl to show up in the regular query string.
+        const realQuery = new URLSearchParams(window.location.search.substring(1));
         const qsParam = (name: string, optional = false): string => {
-            if (!optional && (!query[name] || typeof (query[name]) !== 'string')) {
+            const vals = widgetQuery.has(name) ? widgetQuery.getAll(name) : realQuery.getAll(name);
+            if (!optional && vals.length !== 1) {
                 throw new Error(`Expected singular ${name} in query string`);
             }
-            return <string>query[name];
+            return <string>vals[0];
         };
 
         // If we have these params, expect a widget API to be available (ie. to be in an iframe
@@ -94,7 +95,7 @@ let meetApi: any; // JitsiMeetExternalAPI
             ]);
             widgetApi.start();
         } else {
-            console.warn("No parent URL or no widget ID - assuming no widget API is available");
+            logger.warn("No parent URL or no widget ID - assuming no widget API is available");
         }
 
         // Populate the Jitsi params now
@@ -115,7 +116,7 @@ let meetApi: any; // JitsiMeetExternalAPI
             if (jitsiAuth === JITSI_OPENIDTOKEN_JWT_AUTH) {
                 // Request credentials, give callback to continue when received
                 openIdToken = await widgetApi.requestOpenIDConnectToken();
-                console.log("Got OpenID Connect token");
+                logger.log("Got OpenID Connect token");
             }
 
             // TODO: register widgetApi listeners for PTT controls (https://github.com/vector-im/element-web/issues/12795)
@@ -138,7 +139,7 @@ let meetApi: any; // JitsiMeetExternalAPI
                         });
                         widgetApi.transport.reply(ev.detail, {}); // ack
                     } else {
-                        widgetApi.transport.reply(ev.detail, {error: {message: "Conference not joined"}});
+                        widgetApi.transport.reply(ev.detail, { error: { message: "Conference not joined" } });
                     }
                 },
             );
@@ -146,7 +147,7 @@ let meetApi: any; // JitsiMeetExternalAPI
 
         enableJoinButton(); // always enable the button
     } catch (e) {
-        console.error("Error setting up Jitsi widget", e);
+        logger.error("Error setting up Jitsi widget", e);
         document.getElementById("widgetActionContainer").innerText = "Failed to load Jitsi widget";
     }
 })();
@@ -168,7 +169,7 @@ function switchVisibleContainers() {
  */
 function createJWTToken() {
     // Header
-    const header = {alg: 'HS256', typ: 'JWT'};
+    const header = { alg: 'HS256', typ: 'JWT' };
     // Payload
     const payload = {
         // As per Jitsi token auth, `iss` needs to be set to something agreed between
@@ -206,7 +207,7 @@ function joinConference() { // event handler bound in HTML
     if (jitsiAuth === JITSI_OPENIDTOKEN_JWT_AUTH) {
         if (!openIdToken?.access_token) { // eslint-disable-line camelcase
             // We've failing to get a token, don't try to init conference
-            console.warn('Expected to have an OpenID credential, cannot initialize widget.');
+            logger.warn('Expected to have an OpenID credential, cannot initialize widget.');
             document.getElementById("widgetActionContainer").innerText = "Failed to load Jitsi widget";
             return;
         }
@@ -221,7 +222,7 @@ function joinConference() { // event handler bound in HTML
         widgetApi.setAlwaysOnScreen(true);
     }
 
-    console.warn(
+    logger.warn(
         "[Jitsi Widget] The next few errors about failing to parse URL parameters are fine if " +
         "they mention 'external_api' or 'jitsi' in the stack. They're just Jitsi Meet trying to parse " +
         "our fragment values and not recognizing the options.",

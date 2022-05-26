@@ -7,21 +7,14 @@ to `Settings->Labs`. This list is non-exhaustive and subject to change, chat in
 **Be warned! Labs features are not finalised, they may be fragile, they may change, they may be
 dropped. Ask in the room if you are unclear about any details here.**
 
-## Matrix Spaces [MSC1772](https://github.com/matrix-org/matrix-doc/pull/1772) support (`feature_spaces`)
+## Submit Abuse Report to Moderators [MSC3215](https://github.com/matrix-org/matrix-doc/pull/3215) support (`feature_report_to_moderators`)
 
-Enables showing, using, creating, and managing spaces. Create Spaces from the all new Space Panel (to left of Room List).
-
-Incompatible with (will disable) `feature_custom_tags`, `feature_communities_v2_prototypes` and stable Communities/Groups support.
-
-Still in heavy development.
+A new version of the "Report" dialog that lets users send abuse reports directly to room moderators,
+if the room supports it.
 
 ## Render LaTeX maths in messages (`feature_latex_maths`)
 
 Enables rendering of LaTeX maths in messages using [KaTeX](https://katex.org/). LaTeX between single dollar-signs is interpreted as inline maths and double dollar-signs as display maths (i.e. centred on its own line).
-
-## New spinner design (`feature_new_spinner`)
-
-Replaces the old spinner image with a new, svg-based one featuring a sleeker design.
 
 ## Message pinning (`feature_pinning`)
 
@@ -123,3 +116,59 @@ or feedback for this functionality at this time.
 
 Allows users to receive encrypted messages by creating a device that is stored
 encrypted on the server, as described in [MSC2697](https://github.com/matrix-org/matrix-doc/pull/2697).
+
+## Do not disturb (`feature_dnd`)
+
+Enables UI for turning on "do not disturb" mode for the current device. When DND mode is engaged, popups
+and notification noises are suppressed. Not perfect, but can help reduce noise.
+
+## Hidden read receipts (`feature_hidden_read_receipts`)
+
+Enables sending hidden read receipts as per [MSC2285](https://github.com/matrix-org/matrix-doc/pull/2285)
+
+## New layout switcher (with message bubbles) (`feature_new_layout_switcher`)
+
+Adds a "Message layout" section under `Settings -> Appearance`, where the user can select their preferred message layout (e.g. IRC or Modern). Additionally, adds a new "Message bubbles" layout.
+
+## Polls (`feature_polls`) [In Development]
+
+Polls are a way to gauge interest from your community about a certain topic with a simple voting mechanic
+within the message timeline. Note that this feature is currently under active development and therefore is
+entirely incomplete and may not work at all - it is not recommended for general use at this time.
+
+Bug reports, feature requests, etc are not currently accepted for this feature flag. A later stage of
+development will provide opportunities for feedback.
+
+## Maximised widgets (`feature_maximised_widgets`) [In Development]
+
+Maximised widgets provide a room layout in which a widget is (temporarily) the primary focus of the room. The whole chat area is then used for the widget. The chat is moved into the right panel.
+
+Note that this feature is currently under active development and therefore is
+entirely incomplete and may not work at all - it is not recommended for general use at this time.
+
+## Metaspaces (`feature_spaces_metaspaces`) [In Development]
+
+Metaspaces are automatically populated spaces you can enable in your Space panel.
+By default, you'll have Home or All rooms, but you can opt in to a People, Favourites, and Other Rooms metaspace too.
+
+## Location sharing (`feature_location_share`) [In Development]
+
+Allows users to send and display location data using [maplibre](https://maplibre.org).
+
+The current implementation is a quick in-progress development spike to
+demonstrate viability and prove [MSC3488](https://github.com/matrix-org/matrix-doc/pull/3488)
+and [MSC3489](https://github.com/matrix-org/matrix-doc/pull/3489) - **the UI has not yet
+been designed, and it will not exit labs until it has**.
+
+For this to work, you must specify a valid maptiler.com API key in
+`"map_style_url": "https://api.maptiler.com/maps/basic/style.json?key=YOUR_KEY_GOES_HERE"`
+in your config.json, or find an alternative map tile server.
+
+## Breadcrumbs v2 (`feature_breadcrumbs_v2`)
+
+Instead of showing the horizontal list of breadcrumbs under the filter field, the new UX is an interactive context menu
+triggered by the button to the right of the filter field.
+
+## Spotlight search (`feature_spotlight`) [In Development]
+
+Switches to a new room search experience.

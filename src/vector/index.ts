@@ -18,30 +18,41 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { logger } from "matrix-js-sdk/src/logger";
+
+// These are things that can run before the skin loads - be careful not to reference the react-sdk though.
+import { parseQsFromFragment } from "./url_utils";
+import './modernizr';
+
 // Require common CSS here; this will make webpack process it into bundle.css.
 // Our own CSS (which is themed) is imported via separate webpack entry points
 // in webpack.config.js
 require('gfm.css/gfm.css');
-require('highlight.js/styles/github.css');
 require('katex/dist/katex.css');
 
-// These are things that can run before the skin loads - be careful not to reference the react-sdk though.
-import {parseQsFromFragment} from "./url_utils";
-import './modernizr';
+/**
+ * This require is necessary only for purposes of CSS hot-reload, as otherwise
+ * webpack has some incredible problems figuring out which CSS files should be
+ * hot-reloaded, even with proper hints for the loader.
+ *
+ * On production build it's going to be an empty module, so don't worry about that.
+ */
+require('./devcss');
+require('./localstorage-fix');
 
 async function settled(...promises: Array<Promise<any>>) {
     for (const prom of promises) {
         try {
             await prom;
         } catch (e) {
-            console.error(e);
+            logger.error(e);
         }
     }
 }
 
 function checkBrowserFeatures() {
     if (!window.Modernizr) {
-        console.error("Cannot check features - Modernizr global is missing.");
+        logger.error("Cannot check features - Modernizr global is missing.");
         return false;
     }
 
@@ -51,6 +62,9 @@ function checkBrowserFeatures() {
     // ES2018: http://262.ecma-international.org/9.0/#sec-promise.prototype.finally
     window.Modernizr.addTest("promiseprototypefinally", () =>
         typeof window.Promise?.prototype?.finally === "function");
+    // ES2020: http://262.ecma-international.org/#sec-promise.allsettled
+    window.Modernizr.addTest("promiseallsettled", () =>
+        typeof window.Promise?.allSettled === "function");
     // ES2018: https://262.ecma-international.org/9.0/#sec-get-regexp.prototype.dotAll
     window.Modernizr.addTest("regexpdotall", () => (
         window.RegExp?.prototype &&
@@ -65,14 +79,14 @@ function checkBrowserFeatures() {
     let featureComplete = true;
     for (let i = 0; i < featureList.length; i++) {
         if (window.Modernizr[featureList[i]] === undefined) {
-            console.error(
+            logger.error(
                 "Looked for feature '%s' but Modernizr has no results for this. " +
                 "Has it been configured correctly?", featureList[i],
             );
             return false;
         }
         if (window.Modernizr[featureList[i]] === false) {
-            console.error("Browser missing feature: '%s'", featureList[i]);
+            logger.error("Browser missing feature: '%s'", featureList[i]);
             // toggle flag rather than return early so we log all missing features rather than just the first.
             featureComplete = false;
         }
@@ -92,6 +106,7 @@ async function start() {
     // load init.ts async so that its code is not executed immediately and we can catch any exceptions
     const {
         rageshakePromise,
+        setupLogStorage,
         preparePlatform,
         loadOlm,
         loadConfig,
@@ -138,6 +153,9 @@ async function start() {
         await settled(loadConfigPromise); // wait for it to settle
         // keep initialising so that we can show any possible error with as many features (theme, i18n) as possible
 
+        // now that the config is ready, try to persist logs
+        const persistLogsPromise = setupLogStorage();
+
         // Load language after loading config.json so that settingsDefaults.language can be applied
         const loadLanguagePromise = loadLanguage();
         // as quickly as we possibly can, set a default theme...
@@ -157,13 +175,13 @@ async function start() {
         // ##########################
         if (!acceptBrowser) {
             await new Promise<void>(resolve => {
-                console.error("Browser is missing required features.");
+                logger.error("Browser is missing required features.");
                 // take to a different landing page to AWOOOOOGA at the user
                 showIncompatibleBrowser(() => {
                     if (window.localStorage) {
                         window.localStorage.setItem('mx_accepts_unsupported_browser', String(true));
                     }
-                    console.log("User accepts the compatibility risks.");
+                    logger.log("User accepts the compatibility risks.");
                     resolve();
                 });
             });
@@ -197,11 +215,16 @@ async function start() {
         await loadThemePromise;
         await loadLanguagePromise;
 
+        // We don't care if the log persistence made it through successfully, but we do want to
+        // make sure it had a chance to load before we move on. It's prepared much higher up in
+        // the process, making this the first time we check that it did something.
+        await settled(persistLogsPromise);
+
         // Finally, load the app. All of the other react-sdk imports are in this file which causes the skinner to
         // run on the components.
         await loadApp(fragparts.params);
     } catch (err) {
-        console.error(err);
+        logger.error(err);
         // Like the compatibility page, AWOOOOOGA at the user
         // This uses the default brand since the app config is unavailable.
         await showError(_t("Your Element is misconfigured"), [
@@ -211,7 +234,7 @@ async function start() {
 }
 
 start().catch(err => {
-    console.error(err);
+    logger.error(err);
     // show the static error in an iframe to not lose any context / console data
     // with some basic styling to make the iframe full page
     delete document.body.style.height;
