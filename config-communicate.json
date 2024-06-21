@@ -22,6 +22,9 @@
             }
         ]
     },
+    "avatarSize":32,
+    "avatarBoxSize":40,
+    "resizeHandleHeight":4,
     "role_selector":{
         "text":"role-selection",
         "url":"/role-selection/#"
