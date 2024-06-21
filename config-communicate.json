@@ -36,7 +36,7 @@
         "https://scalar-staging.riot.im/scalar/api"
     ],
     "DISABLED_bug_report_endpoint_url": "https://element.io/bugreports/submit",
-    "defaultCountryCode": "GB",
+    "defaultCountryCode": "AU",
     "showLabsSettings": false,
     "features": {
         "feature_new_spinner": false
@@ -56,6 +56,7 @@
     "sort_directory_view_alphabetically": true,
     "show_rooms_in_space_only": true,
     "left_hand_nav_help_text": "Use the + to contact or search for roles, people or services",
+    "desktopNotificationIsEnforced": true,
     "directory": {
         "api": {
             "base_path": "http://localhost:12121/pegacorn/operations/directory/r1/",
@@ -145,11 +146,13 @@
         "UIFeature.changeFont": false,
         "UIFeature.flair": false,
         "UIFeature.advancedEncryption": false,
-        "UIFeature.advancedSettings": false,
+        "UIFeature.advancedSettings": true,
         "UIFeature.communities": false,
         "UIFeature.feedback": false,
         "integrationProvisioning": false,
-        "UIFeature.pullUpCompactLayout": true,
+        "UIFeature.showSettingFontStyleLayout": false,
+        "UIFeature.defaultFontSize": 15,
+        "UIFeature.showSettingIRCStyleLayout": false,
         "UIFeature.changeDisplayName": false,
         "UIFeature.editEmailAddresses": false,
         "UIFeature.editPhoneNumbers": false,
@@ -176,6 +179,7 @@
         "TextualBody.disableBigEmoji": true,
         "hideAvatarChanges": true,
         "hideDisplaynameChanges": true,
+        "notificationsEnabled": true,
         "UIFeature.preferencesShowGeneralSection": false,
         "UIFeature.preferencesPaneHiddenFlags": [
             "showImages",
@@ -197,6 +201,15 @@
             "expandCodeByDefault",
             "showCodeLineNumbers"
         ],
+        "TagPanel.enableTagPanel": false,
+        "MessageComposerInput.dontSuggestEmoji": true,
+        "TextualBody.enableBigEmoji": false,
+        "alwaysShowTimestamps": true,
+        "showTwelveHourTimestamps": true,
+        "showAvatarChanges": false,
+        "showDisplaynameChanges":false,
+        "Pill.shouldShowPillAvatar": false,
+        "promptBeforeInviteUnknownUser": false,
         "webRtcForceTURN": true,
         "showChatEffects": false,
         "UIFeature.showSettingMirrorLocalVideoFeed": false,
@@ -204,7 +217,7 @@
         "UIFeature.showSettingAllowFallbackCallAssist": false,
         "UIFeature.securityAllowSessionEdits": false,
         "UIFeature.showEncryptionSettings": false,
-        "UIFeature.showSimplifiedVersionInformation": true,
+        "UIFeature.showSimplifiedVersionInformation": false,
         "UIFeature.showAdvancedAboutInformation": false,
         "MessageComposerInput.showStickersButton": false,
         "UIFeature.showSecurityKeyBackupPrompt": false,
@@ -214,6 +227,21 @@
         "UIFeature.registration": false
     },
     "DISABLED_jitsi": {
-        "preferredDomain": "jitsi.riot.im"
-    }
+        "preferredDomain": null
+    },
+    "terms_and_conditions_links": [
+        {
+            "url": "https://www.act.gov.au/privacy",
+            "text": "Terms and Condition"
+        },
+        {
+            "url": "https://www.act.gov.au/privacy",
+            "text": "Privacy Policy"
+        },
+        {
+            "url": "https://www.act.gov.au/privacy",
+            "text": "Credit"
+        }
+    ]
+
 }
