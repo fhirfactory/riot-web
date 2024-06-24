@@ -71,7 +71,12 @@
               "role_suffix": "/PractitionerRoleFavourites",
               "service_suffix": "/ServiceFavourites",
               "people_suffix": "/PractitionerFavourites"
-            }
+            },
+            "role_selection":{
+                "suffix": "/PractitionerRoles",
+                "prefix": "Practitioner/" 
+              }
+              
         },
         "show_favorite_icon_in_directory_search": true,
         "numberOfRecordsToShowInSearch": 20,
